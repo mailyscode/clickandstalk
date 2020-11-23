@@ -1,8 +1,25 @@
-.btn-ghost {
+.btn-log {
   color: $blue-sapphire;
   border: 1px solid $blue-sapphire;
   border-radius: 50px;
   opacity: 0.6;
   transition: opacity 0.2s ease;
   margin-bottom: 20px;
+}
+
+.btn-check {
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: $orange-peel;
+  border: 1px solid $orange-peel;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  &:hover {
+    text-decoration: none;
+    color: $maximum-blue;
+    border: 1px solid $maximum-blue;
+  }
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-25 login">
   <h2>Forgot your password?</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -8,11 +8,13 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
+                  label: false,
+                  placeholder: "Enter your email",
                   input_html: { autocomplete: "email" } %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Send me reset password instructions" %>
+      <%= f.button :submit, "Reset password", class:"btn btn-log btn-lg"  %>
     </div>
   <% end %>
 

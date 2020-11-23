@@ -1,18 +1,24 @@
 .footer {
-  text-align: center;
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0px 50px;
   background-color: $blue-sapphire;
-  // position: absolute;
-  // bottom: 0;
-  width: 100%;
+  .footer-links  {
+    display: flex;
+    align-items: center;
+  }
   p {
   font-family: Roboto;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
+  margin-bottom: 0;
   }
   a {
-  color: $orange-stalk;
+  color: $honey-yellow;
   width: 30px;
-  font-size: 18px;
+  font-size: 24px;
+  margin-right: 20px;
   }
 }
