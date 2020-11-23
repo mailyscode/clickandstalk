@@ -11,3 +11,17 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/footer";
+@import "users/login";
+@import "components/button";
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: Roboto;
+  min-height: 100vh;
+  main {
+    flex-grow: 1;
+  }
+}
