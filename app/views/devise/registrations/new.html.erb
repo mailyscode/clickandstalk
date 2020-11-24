@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-25 login">
   <h2>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -8,18 +8,28 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
+                  label: false,
+                  placeholder: "Enter your email",
                   input_html: { autocomplete: "email" }%>
+      <%= f.input :username,
+                  required:true,
+                  label: false,
+                  placeholder: "Enter a username"%>
       <%= f.input :password,
                   required: true,
+                  label: false,
+                  placeholder:  "Enter your password",
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
+                  label: false,
+                  placeholder:  "Confirm your password",
                   input_html: { autocomplete: "new-password" } %>
     </div>
 
     <div class="form-actions ">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Sign up", class:"btn btn-log btn-lg" %>
     </div>
   <% end %>
 

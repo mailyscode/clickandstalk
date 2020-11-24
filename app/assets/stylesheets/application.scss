@@ -9,11 +9,12 @@
 @import "font-awesome";
 
 // Your CSS partials
-@import "components/index";
 @import "pages/index";
-@import "components/footer";
 @import "users/login";
+@import "components/index";
 @import "components/button";
+@import "components/banner";
+@import "components/footer";
 
 body {
   display: flex;
@@ -24,4 +25,16 @@ body {
   main {
     flex-grow: 1;
   }
+}
+
+
+h1 {
+  font-family: Roboto;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.container {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
