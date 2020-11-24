@@ -7,8 +7,9 @@ Rails.application.routes.draw do
       get :twitter
       get :instagram
     end
-  get 'dashboard', to: 'users#dashboard', as: :dashboard
   end
+
+  get 'dashboard', to: 'users#dashboard', as: :dashboard
 
   root to: 'pages#home'
 end
