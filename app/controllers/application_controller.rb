@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :username_insta, :username_twitter, :username_linkedin])
   end
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || connect_path
+  end
 end
