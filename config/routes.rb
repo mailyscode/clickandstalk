@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => "users/omniauth_callbacks"
+  }
 
   resources :users, only: [:show, :edit, :update] do
     collection do
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
       get :instagram
     end
   end
+  get 'user/connect', to: 'users#connect', as: :connect
+  get 'dashboard', to: 'users#dashboard', as: :dashboard
 
   get 'dashboard', to: 'users#dashboard', as: :dashboard
 

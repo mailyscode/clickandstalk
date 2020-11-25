@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-
- def dashboard
+  def connect
     @user = current_user
   end
+
+HEAD
+ def dashboard
+    @user = current_user
+end
+
 end
