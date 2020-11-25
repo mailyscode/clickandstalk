@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
   get 'user/connect', to: 'users#connect', as: :connect
-  get 'dashboard', to: 'users#dashboard', as: :dashboard
 
   get 'dashboard', to: 'users#dashboard', as: :dashboard
 

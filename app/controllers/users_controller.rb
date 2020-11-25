@@ -3,9 +3,8 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-HEAD
- def dashboard
+  def dashboard
     @user = current_user
-end
+  end
 
 end

@@ -277,9 +277,9 @@ Devise.setup do |config|
     if provider_name == :developer
       config.omniauth :developer
     else
-      api_key = ENV["#{provider_name.upcase}_API_KEY"]
-      api_secret = ENV["#{provider_name.upcase}_API_SECRET"]
-      config.omniauth provider_name, api_key, api_secret, :scope => 'r_liteprofile r_emailaddress w_member_social r_basicprofile'
+      api_key = ENV["TWITTER_API_KEY"]
+      api_secret = ENV["TWITTER_API_KEY_SECRET"]
+      config.omniauth provider_name, api_key, api_secret
     end
   end
 

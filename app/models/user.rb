@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,
-         :omniauth_providers => [:linkedin]
+         :omniauth_providers => [:twitter]
 
   validates :username, uniqueness: true, presence: true
   validates :username_insta, uniqueness: true
