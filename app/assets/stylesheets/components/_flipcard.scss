@@ -32,6 +32,13 @@
 }
 
 /* Style the front side (fallback if image is missing) */
+.flip-card-front img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 1px 1px 8px rgba(100, 100, 100, 0.5);
+}
 
 /* Style the back side */
 .flip-card-back {
