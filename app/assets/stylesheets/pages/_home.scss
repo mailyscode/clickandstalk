@@ -1,1 +1,54 @@
 // Specific CSS for your home-page
+hr {
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 60%;
+    border: 1px;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.collect-info {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  text-align: center;
+  h6 {
+    margin-top: 20px;
+    font-style: italic;
+  }
+  .collect-details {
+    width: 500px;
+    padding-top: 20px;
+    align-self: center;
+    font-size: 20px;
+  }
+  .instagram-collect {
+    margin-left: 200px;
+  }
+  .linkedin-collect {
+    margin-left: 400px;
+  }
+}
+
+.offer {
+  align-items: center;
+  width: fit-content;
+  p{
+    text-align: center
+  }
+  .offer-child  {
+    position: relative;
+    font-size: 20px;
+    margin-left: 50px;
+    text-align: center;
+    img {
+      position: absolute;
+      bottom: -40px;
+      left: 20px;
+      opacity: 0.15;
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+}

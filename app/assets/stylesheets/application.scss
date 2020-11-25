@@ -35,6 +35,19 @@ h1 {
   text-transform: uppercase;
 }
 
+.clickandstalk {
+  text-align: center;
+  margin-right: 10px;
+  font-size: 38px;
+  color: $blue-sapphire;
+  span {
+    color: $honey-yellow;
+  }
+}
+
+span {
+  font-weight: bold;
+}
 .container {
   margin-top: 50px;
   margin-bottom: 50px;
