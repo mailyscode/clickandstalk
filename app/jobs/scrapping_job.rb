@@ -7,7 +7,7 @@ class ScrappingJob < ApplicationJob
   def perform(user_id)
     @user = User.find(user_id)
     scrap_insta
-    scrap_linkedin
+    # scrap_linkedin
     # collect_tweets(user.twitter_oauth_data)
     # send email
   end
@@ -53,15 +53,16 @@ class ScrappingJob < ApplicationJob
       end
     end
     img_urls.uniq.each do |url|
-      resource = Resources.new(
+      resource = Resource.new(
         data_type: "insta",
         data: {
           url: url
         }
       )
-      resource.user = User.where(username_insta: username_insta)
+      resource.user = @user
       resource.save
     end
+    driver.quit
   end
 
   def scrap_linkedin
