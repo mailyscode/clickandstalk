@@ -1,13 +1,13 @@
 require 'webdrivers'
 require 'selenium-webdriver'
-require 'amazing_print'
 
 class ScrappingJob < ApplicationJob
   queue_as :default
 
-  def perform(user)
+  def perform(user_id)
+    @user = User.find(user_id)
     # scrap_insta(user.username_insta)
-    scrap_linkedin(user.username_linkedin)
+    scrap_linkedin
     # collect_tweets(user.twitter_oauth_data)
     # send email
   end
@@ -18,7 +18,8 @@ class ScrappingJob < ApplicationJob
     # code pour le scrap d'insta
   end
 
-  def scrap_linkedin(username_linkedin)
+  def scrap_linkedin
+    username_linkedin = @user.username_linkedin
     # code pour le scrap linkedin
     driver = Selenium::WebDriver.for :chrome
 
@@ -86,14 +87,16 @@ class ScrappingJob < ApplicationJob
       sleep 5
 
       # Save linkedin data in Resources
-      @resource = Resource.new(
+      Resource.create(
         data_type: "linkedin",
-        data: { avatar_url: avatar_url }
+        data: { avatar_url: avatar_url },
+        user: @user
       )
 
-      @resource = Resource.new(
+      Resource.create(
         data_type: "linkedin",
-        data: { headline: headline }
+        data: { headline: headline },
+        user: @user
       )
 
       experiences.each do |info|
@@ -101,7 +104,7 @@ class ScrappingJob < ApplicationJob
           data_type: "linkedin",
           data: { experiences: info }
         )
-        @resource.user = user.where(username_linkedin: username_linkedin)
+        @resource.user = @user
         @resource.save
       end
 
@@ -110,9 +113,10 @@ class ScrappingJob < ApplicationJob
           data_type: "linkedin",
           data: { education: info }
         )
-        @resource.user = user.where(username_linkedin: username_linkedin)
+        @resource.user = @user
         @resource.save
       end
+    end
   end
 
   def collect_tweets(twitter_oauth_data)
