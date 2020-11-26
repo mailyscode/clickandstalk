@@ -8,10 +8,28 @@ hr {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
+.offer {
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+  margin-left: 50px;
+  .offer-child  {
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    h2 {
+      margin-right: 30px;
+    }
+  }
+}
+
 .collect-info {
   margin-top: 50px;
   margin-bottom: 25px;
   text-align: center;
+  h1 {
+    color: $blue-sapphire;
+  }
   h6 {
     margin-top: 20px;
     font-style: italic;
@@ -30,25 +48,12 @@ hr {
   }
 }
 
-.offer {
-  align-items: center;
-  width: fit-content;
-  p{
-    text-align: center
-  }
-  .offer-child  {
-    position: relative;
-    font-size: 20px;
-    margin-left: 50px;
-    text-align: center;
-    img {
-      position: absolute;
-      bottom: -40px;
-      left: 20px;
-      opacity: 0.15;
-      width: 150px;
-      height: 150px;
-    }
-  }
+.welcome h2,
+.encyclopedia h2 {
+  color: $blue-sapphire;
+}
 
+.encyclopedia p {
+  font-size: 20px;
+  margin-left: 15px;
 }

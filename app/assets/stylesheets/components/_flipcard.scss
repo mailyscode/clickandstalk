@@ -36,7 +36,7 @@
   width: 300px;
   height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: 1px 1px 8px rgba(100, 100, 100, 0.5);
 }
 
@@ -46,10 +46,13 @@
   font-family: Roboto;
   padding: 40px 30px;
   transform: rotateY(180deg);
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: 1px 1px 8px rgba(100, 100, 100, 0.5);
-  h1 {
+  h1, h2 {
     font-weight: bold;
+  }
+  h1 {
+    padding: 50px 0px;
   }
   p {
     text-align: center;

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   end
   get 'user/connect', to: 'users#connect', as: :connect
   get 'user/checkme', to: 'users#checkme', as: :checkme
+  get 'user/twitter', to: 'users#twitter', as: :twitter
+  get 'user/instagram', to: 'users#instagram', as: :instagram
+  get 'user/linkedin', to: 'users#linkedin', as: :linkedin
 
   get 'dashboard', to: 'users#dashboard', as: :dashboard
 
