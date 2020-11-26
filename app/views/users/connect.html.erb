@@ -1,15 +1,27 @@
 <div class="page-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80)">
-  <h1>My Social Media Analysis</h1>
+  <div class="title-container">
+    <p><span>Log in</span> to your social networks</p>
+  </div>
 </div>
 
-  <%= image_tag("https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png") %>
-  <%= link_to "Link my Twitter profile to Click & Stalk", user_twitter_omniauth_authorize_path %><br />
+<div class="container text-center">
 
   <%= image_tag("https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png") %>
+  <%= image_tag("https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png") %>
+  <h3 class="text-center">We can only find you if you enter each username here :</h3>
 
+<%= simple_form_for (@user) do |f| %>
+  <%= f.input :username_insta, label: false, placeholder: "Enter your Instagram username" %>
+  <%= f.input :username_linkedin, label: false, placeholder: "Enter your Linkedin username" %>
+  <div class="form-actions text-center">
+    <%= f.button :submit, class:"btn btn-log btn-lg" %>
+  </div>
+<% end %>
 
-  <%= link_to "Check me", checkme_path, class:"btn btn-log btn-lg" %>
-
-<div class="bottom-page text-center">
-  <%= link_to 'Back to homepage', root_path, class: 'btn btn-check' %>
+  <%= image_tag("https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png") %>
+  <%= link_to "Link my Twitter profile to Click & Stalk", user_twitter_omniauth_authorize_path, class:"link" %><br>
 </div>
+
+  <div class="text-center">
+    <%= link_to "Stalk me friendly!", checkme_path, class:"btn btn-check btn-lg" %>
+  </div>

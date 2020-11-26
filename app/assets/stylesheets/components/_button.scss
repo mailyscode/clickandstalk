@@ -23,3 +23,17 @@
     border: 1px solid $maximum-blue;
   }
 }
+
+.link a {
+  color: black;
+  background-image: linear-gradient(to bottom, transparent 65%, $blue-sapphire 0);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: background-size .4s ease;
+}
+
+.link a:hover {
+  background-size: 100% 100%;
+  cursor: pointer;
+}
