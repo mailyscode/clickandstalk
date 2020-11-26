@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def checkme
-    ScrappingJob.perform_later(current_user)
+    ScrappingJob.perform_later(current_user.id)
     redirect_to dashboard_path
   end
 end
