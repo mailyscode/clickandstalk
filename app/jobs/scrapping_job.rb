@@ -2,9 +2,9 @@ class ScrappingJob < ApplicationJob
   queue_as :default
 
   def perform(user)
-    scrap_insta(user.username_insta)
-    scrap_linked_in(user.username_linkedin)
-    collect_tweets(user.twitter_oauth_data)
+    # scrap_insta(user.username_insta)
+    # scrap_linked_in(user.username_linkedin)
+    # collect_tweets(user.twitter_oauth_data)
     # send email
   end
 
