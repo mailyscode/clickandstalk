@@ -4,27 +4,28 @@
   </div>
 </div>
 
-<div class="container d-flex text-center mr-3">
+<div class="container d-flex text-center justify-content-around">
   <div class="connect-1">
     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" alt="Avatar" style="width:100px;height:100px;">
     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
-    <h3 class="text-center">Link your profiles to Click&Stalk :</h3>
+    <p class="text-center">Link your profiles to Click&Stalk (without prefix @) :</p>
 
     <%= simple_form_for (@user) do |f| %>
       <%= f.input :username_insta, label: false, placeholder: "Enter your Instagram username" %>
       <%= f.input :username_linkedin, label: false, placeholder: "Enter your Linkedin username" %>
       <div class="form-actions text-center">
-        <%= f.button :submit, class:"btn btn-log btn-lg" %>
+        <%= f.button :submit, "Save", class:"btn btn-log btn-lg" %>
       </div>
     <% end %>
   </div>
 
-  <div class="connect-2 d-block">
-    <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;">
-    <%= link_to "Connect to my Twitter profile", user_twitter_omniauth_authorize_path, class:"link" %><br>
+  <div class="connect-2">
+    <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;"><br>
+    <br><%= link_to "Connect to my Twitter profile", user_twitter_omniauth_authorize_path, class:"link" %>
   </div>
 </div>
 
 <div class="text-center">
-    <%= link_to "Stalk me friendly!", checkme_path, class:"btn btn-check btn-lg" %>
+    <%= link_to "Stalk me friendly! *", checkme_path, class:"btn btn-check btn-lg" %>
+    <p>*<em>At least ONE username has to be provided</em></p>
 </div>
