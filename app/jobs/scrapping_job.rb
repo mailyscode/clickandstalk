@@ -1,14 +1,15 @@
 require 'webdrivers'
 require 'selenium-webdriver'
 
+
 class ScrappingJob < ApplicationJob
   queue_as :default
 
   def perform(user_id)
     @user = User.find(user_id)
     scrap_insta
-    # scrap_linkedin
-    # collect_tweets(user.twitter_oauth_data)
+    scrap_linkedin
+    collect_tweets
     # send email
   end
 
@@ -166,10 +167,16 @@ class ScrappingJob < ApplicationJob
     end
   end
 
-  def collect_tweets(twitter_oauth_data)
+  def collect_tweets
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_API_KEY"]
+      config.consumer_secret     = ENV["TWITTER_API_KEY_SECRET"]
+      config.access_token        = @user.twitter_oauth_data["token"]
+      config.access_token_secret = @user.twitter_oauth_data["secret"]
+    end
+    tweets = client.home_timeline(count: 100)
     # code pour recuperer les tweets
   end
-
 
   def resource_params
     params.require(:resource).permit(:data_type, :data)
