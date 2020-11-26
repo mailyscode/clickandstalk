@@ -1,4 +1,4 @@
-.main-banner {
+.banner {
   height: 100vh;
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
@@ -29,16 +29,16 @@
 }
 
 .page-banner {
-  height: 35vh;
+  height: 150px;
   background-position: center;
   background-size: cover;
   color: #eee;
   text-align: center;
-  padding: 130px 0;
+  padding: 120px 0;
   .title-container {
     margin-right: 50px;
     margin-left: 50px;
-    text-align: left;
+    text-align: center;
     p {
       font-size: 40px;
       font-weight: lighter;
