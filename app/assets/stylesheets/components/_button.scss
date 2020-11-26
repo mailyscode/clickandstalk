@@ -23,3 +23,20 @@
     border: 1px solid $maximum-blue;
   }
 }
+
+.link {
+  color: black;
+  font-size: 25px;
+  background-image: linear-gradient(to bottom, transparent 65%, $light-cornflower-blue 0);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: background-size .4s ease;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: black;
+  background-size: 100% 100%;
+  cursor: pointer;
+}

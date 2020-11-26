@@ -27,3 +27,26 @@
     }
   }
 }
+
+.page-banner {
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  color: #eee;
+  text-align: center;
+  padding: 120px 0;
+  .title-container {
+    margin-right: 50px;
+    margin-left: 50px;
+    text-align: center;
+    p {
+      font-size: 40px;
+      font-weight: lighter;
+      color: white;
+    }
+    span {
+      font-weight: bolder;
+      letter-spacing: 1.5px;
+    }
+  }
+}
