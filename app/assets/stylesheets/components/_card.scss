@@ -62,4 +62,27 @@
 }
 
 
+.card-details {
+    padding: 10px 10px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    height: fit-content;
+    background-color: #F4F4F4;
+    box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.5);
+    border-radius: 4px;
+    border: 1px solid #F4F4F4;
+    text-align: center;
+    p {
+      margin-bottom: 50px;
+    }
+    h3 {
+      text-align: center;
+      color: $blue-sapphire;
+    }
+    h4 {
+      color: $orange-stalk;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
 

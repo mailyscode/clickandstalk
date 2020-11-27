@@ -7,6 +7,23 @@
   margin-bottom: 20px;
 }
 
+.btn-back {
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: $prussian-blue;
+  border: 1px solid $prussian-blue;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  &:hover {
+    text-decoration: none;
+    color: $blue-green;
+    border: 1px solid $blue-green;
+  }
+}
+
 .btn-check {
   padding: 20px;
   margin-top: 20px;
