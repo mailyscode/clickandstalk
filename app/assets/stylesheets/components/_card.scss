@@ -1,3 +1,9 @@
+.main-card{
+display: flex;
+justify-content: center;
+}
+
+
 .card-insta{
   display: block;
   top: 0px;
@@ -5,20 +11,21 @@
   width: 400px;
   height: 400px;
   background-color: #F4F4F4;
-  box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.2);
-  border-radius: 50px;
+  box-shadow: 0px 2px 4px #8a3ab9;
+  box-shadow: rgba(38, 38, 38, 0.2);
+  border-radius: 10px;
   padding: 20px 14px;
   margin: 12px;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
   border: 1px solid #F4F4F4;
-  text-align: left;
-  .card-white {
-  background-color: white;
-  padding: 1em;
-  border-radius: 50px;
-}
+  text-align: center;
+  font-family: Roboto;
+  background: white;
+  position: center;
+
+
 }
 
 .card-twitter{
@@ -28,15 +35,18 @@
   width: 400px;
   height: 400px;
   background-color: #F4F4F4;
-  box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.2);
-  border-radius: 50px;
+  box-shadow: 0px 2px 4px #1DA1F2;
+  box-shadow: rgba(38, 38, 38, 0.2);
+  border-radius: 10px;
   padding: 20px 14px;
   margin: 12px;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
   border: 1px solid #F4F4F4;
-  text-align: left;
+  text-align: center;
+  font-family: Roboto;
+  background: white;
 }
 
 .card-linkedin{
@@ -46,20 +56,16 @@
   width: 400px;
   height: 400px;
   background-color: #F4F4F4;
-  box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.2);
-  border-radius: 50px;
+  box-shadow: 0px 2px 4px #0072b1;
+  box-shadow: rgba(38, 38, 38, 0.2);
+  border-radius: 10px;
   padding: 20px 14px;
   margin: 12px;
-  text-decoration: none;
-  z-index: 0;
-  overflow: hidden;
-  border: 1px solid #F4F4F4;
-  text-align: left;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none !important;
-    color: black;
-}
+  text-align: center;
+  font-family: Roboto;
+  background: white;
+  // background: -webkit-linear-gradient(bottom, top, #F4F4F4,#F4F4F4 30%, white 30%, white);
+ }
 
 
 .card-details {

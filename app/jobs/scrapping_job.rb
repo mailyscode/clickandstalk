@@ -174,8 +174,15 @@ class ScrappingJob < ApplicationJob
       config.access_token        = @user.twitter_oauth_data["token"]
       config.access_token_secret = @user.twitter_oauth_data["secret"]
     end
-    tweets = client.home_timeline(count: 100)
-    # code pour recuperer les tweets
+    tweets = client.user_timeline(count: 10, include_rts: false)
+    tweets.each do |tweet|
+      @resource = Resource.new(
+        data_type: "twitter",
+        data: { username: tweet.user.screen_name, content: tweet.text, date: tweet.created_at, place: tweet.place.full_name}
+      )
+      @resource.user = @user
+      @resource.save
+    end
   end
 
   def resource_params
