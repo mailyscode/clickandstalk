@@ -8,6 +8,13 @@ hr {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
+
+.main-page {
+  h1 {
+    color: $blue-sapphire;
+  }
+}
+
 .offer {
   align-items: center;
   width: fit-content;
@@ -48,12 +55,24 @@ hr {
   }
 }
 
-.welcome h2,
-.encyclopedia h2 {
-  color: $blue-sapphire;
-}
-
-.encyclopedia p {
+.flipcards {
+  h6 {
+  color: $light-cornflower-blue;
   font-size: 20px;
-  margin-left: 15px;
+  font-style: italic;
+  }
+}
+.welcome {
+  text-align: center;
+  font-weight: bold;
+  h3 {
+    color: $blue-sapphire;
+    font-variant: small-caps;
+    font-size: 36px
+  }
+  span {
+    color: $light-cornflower-blue;
+    font-size: 42px;
+    text-decoration: underline dotted $light-cornflower-blue;
+  }
 }

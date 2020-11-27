@@ -6,22 +6,21 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="card-details">
-    <h1>Profil</h1>
-    <h3 style="white-space: pre-wrap;">Aperçu...</h3>
-    <p>Vous avez <span>481 followers</span>, vous êtes voyagés dans <span>8 pays étrangers</span> ...</p>
+<div class="container social-media-pages">
+  <div class="card-title title-1">
+    <h1>Profile</h1>
   </div>
-
   <div class="card-details">
-    <h1>Photos</h1>
-    <h3 style="white-space: pre-wrap;">These people appears many times on your feed :</h3>
+    <p>You have <span>481 followers</span>.</p>
+    <h3 style="white-space: pre-wrap;">Your <em>STAR</em> pictures!</h3>
     <div class="photos d-flex justify-content-center mb-5">
       <img class="avatar-square" alt="avatar-square" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
       <img class="avatar-square" alt="avatar-square" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
       <img class="avatar-square" alt="avatar-square" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
     </div>
-    <h4 style="white-space: pre-wrap;">NUDITY WARNING!</h4>
+    <div class="card-title title-warning">
+      <h1>NUDITY WARNING!</h1>
+    </div>
     <p>Vous avez <span>2 photos dénudées</span> sur votre profil !</p>
     <div class="photos d-flex justify-content-center mb-5">
       <img class="avatar-square" alt="avatar-square" src="https://leakedpie.com/wp-content/uploads/2017/07/Kim-Kardashian-undressed-for-paper-magazine-with-black-gloves-on.jpg" />
@@ -29,15 +28,31 @@
     </div>
   </div>
 
-  <div class="card-details">
-    <h1>Geolocalisation</h1>
-    <h3 style="white-space: pre-wrap;">Your travel spots</h3>
-    <p>You have been to <span>Japan, Egypt, Caiman Islands and Mexico</span>........</p>
+  <div class="twin-cards d-flex">
+    <div class="twin-1 w-50 mr-3">
+      <%= image_tag "https://miro.medium.com/max/820/1*aznteFOyGq32hSPUVvQMJg.jpeg", style:"width:400px;"%>
+    </div>
+    <div class="twin-2 w-50">
+      <div class="card-title title-3">
+        <h1>Geolocalisation</h1>
+      </div>
+      <div class="card-details">
+        <h3 style="white-space: pre-wrap;">Your favorite spots</h3>
+        <p>You have been to <span>16 differents countries</span>.</p>
+        <p>You are favorite spots are <span>Japan, Egypt, Caiman Islands and Mexico</span>.</p>
+      </div>
+    </div>
   </div>
 
 
-   <div class="text-center">
+  <div class="social-link link-insta text-center">
+    <%= link_to '', "https://www.instagram.com/#{current_user.username_insta}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-instagram" %>
+  </div>
+
+  <div class="text-center">
     <%= link_to "Back to Dashboard", dashboard_path, class:"btn btn-back" %>
-    </div>
+  </div>
 
 </div>
+
+
