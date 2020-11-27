@@ -11,4 +11,13 @@ class UsersController < ApplicationController
     ScrappingJob.perform_later(current_user.id)
     redirect_to dashboard_path
   end
+
+  def twitter_page
+  end
+
+  def instagram_page
+  end
+
+  def linkedin_page
+  end
 end

@@ -36,6 +36,7 @@
   text-align: center;
   padding: 120px 0;
   .title-container {
+    align-self: center;
     margin-right: 50px;
     margin-left: 50px;
     text-align: center;
@@ -48,5 +49,16 @@
       font-weight: bolder;
       letter-spacing: 1.5px;
     }
+  }
+}
+
+.title-container {
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  h1 {
+    padding-top: 40px;
+    color: $blue-sapphire;
+    font-size: 60px;
   }
 }

@@ -32,6 +32,13 @@
 }
 
 /* Style the front side (fallback if image is missing) */
+.flip-card-front img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 1px 1px 8px rgba(100, 100, 100, 0.5);
+}
 
 /* Style the back side */
 .flip-card-back {
@@ -39,10 +46,13 @@
   font-family: Roboto;
   padding: 40px 30px;
   transform: rotateY(180deg);
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: 1px 1px 8px rgba(100, 100, 100, 0.5);
-  h1 {
+  h1, h2 {
     font-weight: bold;
+  }
+  h1 {
+    padding: 50px 0px;
   }
   p {
     text-align: center;
@@ -54,7 +64,7 @@
   }
 }
 
-.flip-card-back.insta {
+.flip-card-back.instagram {
     background: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1615&q=80");
   }
 
