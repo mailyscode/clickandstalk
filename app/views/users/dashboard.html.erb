@@ -1,5 +1,7 @@
-<div class="page-banner" style="height: 18rem;">
-  <h1><strong>My Social Media Analysis</strong></h1>
+  <div class="page-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80)">
+  <div class="title-container">
+   <h1><strong>My Social Media Analysis</strong></h1>
+  </div>
 </div>
 <br> <br>
  <h3 style="text-align: center"> We just stalked you ! Here is the data we collected about you...👀 </h3>
@@ -27,6 +29,8 @@
     <div>
       It's missing : experiences between 2018 and your current job
     </div>
+    <br>
+    <%=link_to "More info", linkedin_path, class:"btn btn-log" %>
   </div>
 
 
@@ -43,6 +47,7 @@
     You have been using the word "squirrel" and "tacos" a lot lately
     </div>
     <br>
+    <%=link_to "More info", twitter_path, class:"btn btn-log" %>
   </div>
 
   <div class="card-insta card-white">
@@ -63,6 +68,8 @@
      <div>
     You have been in Italy, Spain and Costa Rica in the past year
     </div>
+     <br>
+    <%=link_to "More info", instagram_path, class:"btn btn-log" %>
 </div>
 
 
