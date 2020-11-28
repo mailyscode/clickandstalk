@@ -33,9 +33,9 @@ hr {
 .collect-info {
   margin-top: 50px;
   margin-bottom: 25px;
-  text-align: center;
   h1 {
     color: $blue-sapphire;
+    text-align: center;
   }
   h6 {
     margin-top: 20px;
@@ -50,29 +50,44 @@ hr {
   .instagram-collect {
     margin-left: 200px;
   }
-  .linkedin-collect {
+  .twitter-collect {
     margin-left: 400px;
   }
 }
 
-.flipcards {
-  h6 {
-  color: $light-cornflower-blue;
-  font-size: 20px;
-  font-style: italic;
+.collect-info.stats {
+  /* List */
+  ul {
+    padding: 0;
+    width: fit-content;
+    margin: 0 auto;
   }
-}
-.welcome {
-  text-align: center;
-  font-weight: bold;
-  h3 {
-    color: $blue-sapphire;
-    font-variant: small-caps;
-    font-size: 36px
+  /* List element */
+  li {
+    counter-increment: index;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    box-sizing: border-box;
+    font-size: 20px;
   }
+  /* Element counter */
   span {
-    color: $light-cornflower-blue;
-    font-size: 42px;
-    text-decoration: underline dotted $light-cornflower-blue;
+    font-size: 2rem;
+    text-align: right;
+    font-weight: bold;
+    min-width: 50px;
+    padding-right: 12px;
+    align-self: flex-start;
+    background-image: linear-gradient(to bottom, #d00000, #ffba08);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .info-source {
+    padding-left: 10px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-style: italic;
   }
 }
