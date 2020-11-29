@@ -194,6 +194,27 @@ class ScrappingJob < ApplicationJob
     end
   end
 
+  def check_tweets
+  gbot = Grammarbot::Client.new(api_key: 'grammarbot_default_key', language: 'en-US', base_uri: 'http://api.grammarbot.io')
+    gbot.api_key = 'new_api_key'
+    gbot.language = 'en-GB'
+    gbot.base_uri = 'http://pro.grammarbot.io'
+    tweets = client.user_timeline(count: 10, include_rts: false)
+    tweets.each do |tweet|
+      @resource = Resource.new(
+        data_type: "twitter",
+        data: { content: tweet.text.check_tweets }
+      )
+      @resource.user = @user
+      @resource.save
+    end
+    results = gbot.check(tweets)
+  end
+
+
+  def profanity
+  end
+
   def resource_params
     params.require(:resource).permit(:data_type, :data)
   end
