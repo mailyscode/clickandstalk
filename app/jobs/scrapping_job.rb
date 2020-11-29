@@ -178,7 +178,16 @@ class ScrappingJob < ApplicationJob
     tweets.each do |tweet|
       @resource = Resource.new(
         data_type: "twitter",
-        data: { username: tweet.user.screen_name, content: tweet.text, date: tweet.created_at, place: tweet.place.full_name}
+        data: { username: tweet.user.screen_name, content: tweet.text, date: tweet.created_at, place: tweet.place.full_name }
+      )
+      @resource.user = @user
+      @resource.save
+    end
+    hashtags = client.user_timeline(count: 10, include_rts: false)
+    hashtags.each do |hashtag|
+      @resource = Resource.new(
+        data_type: "twitter",
+        data: { content: client.search("#") }
       )
       @resource.user = @user
       @resource.save
