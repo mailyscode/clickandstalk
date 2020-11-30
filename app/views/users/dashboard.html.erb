@@ -7,76 +7,64 @@
  <h3 style="text-align: center"> We just stalked you ! Here is the data we collected about you...👀 </h3>
 <br> <br>
 
+
 <div class="main-card">
 
+
   <div class="card-linkedin">
-    <strong>
-      LINKEDIN
-    </strong>
-    <br>  <br>
-    <div>
-      Your feed
-    </div>
-    <br>
-    <div>
-      Your are currently employed at Google as a full-stack developer !
-    </div>
-    <br>
-    <div>
-      Please check your spelling mistakes : "Helllo", "three job"
-    </div>
-    <br>
-    <div>
-      It's missing : experiences between 2018 and your current job
-    </div>
-    <br>
-    <%=link_to "More info", linkedin_path, class:"btn btn-log" %>
+    <container class="flexbox">
+     <img class= "avatar-bordered" src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" alt="Avatar" style="width:100px;height:100px;">
+       @username_linkedin <%#= @user.username_linkedin %>
+      </container> <br>
+        <div>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/921/921335.svg" style="width:50px;height:50px;">
+        You have less than 500 relations, please add more !
+        </div> <br>
+        <div align="left";>
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/3135/3135729.svg" style="width:50px;height:50px;">
+        Add more skills !
+        </div>
+        <br>
+      <%=link_to "More info", linkedin_path, class:"btn btn-log mt-auto btn-block" %>
   </div>
 
-
-  <div class="card-twitter ">
-  <strong>
-  TWITTER
-  </strong>
-    <br> <br>
-   <div>
-    Your feed
-    </div>
-    <br>
-     <div>
-    You have been using the word "squirrel" and "tacos" a lot lately
-    </div>
-    <br>
-    <%=link_to "More info", twitter_path, class:"btn btn-log" %>
-  </div>
-
-  <div class="card-insta card-white">
-
-  <strong>
-  INSTAGRAM
-  </strong>
-  <br>  <br>
-
-   <div>
-    Your feed
-    </div>
-    <br>
-   <div>
-    Your 3 most liked photos
-    </div>
-    <br>
-     <div>
-    You have been in Italy, Spain and Costa Rica in the past year
-    </div>
-     <br>
-    <%=link_to "More info", instagram_path, class:"btn btn-log" %>
+<div class="card-insta" >
+    <container class="flexbox">
+      <img class= "avatar-bordered" src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
+       @username_insta <%#= @user.username_insta %>
+       </container>
+        <br>
+        <div align="left";>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/916/916762.svg" style="width:50px;height:50px;">
+        Your 3 most liked photos
+        </div> <br>
+        <div align="left";>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/684/684809.svg" style="width:50px;height:50px;">
+        You have been in Italy, Spain and Costa Rica in the past year
+        </div>
+       <br>
+    <%=link_to "More info", instagram_path, class:"btn btn-log mt-auto btn-block" %>
 </div>
 
 
-
-
-
+  <div class="card-twitter" >
+    <container class="flexbox">
+      <img class= "avatar-bordered avatar-dash" src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;">
+        @username_twitter <%#= @user.username_twitter %>
+         </container> <br>
+           <div align="left";>
+            <img src= "https://www.flaticon.com/svg/static/icons/svg/3260/3260057.svg" style="width:50px;height:50px;">
+          Your mother would'nt be happy if she knew you used these words
+          </div>
+          <div align="left";>
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/1717/1717780.svg" style="width:50px;height:50px;">
+      You have been using the word "squirrel" and "tacos" a lot lately
+      </div>
+      <br>
+    <%=link_to "More info", twitter_path, class:"btn btn-log mt-auto btn-block" %>
+    </div>
 </div>
+
 
 <div class="bottom-page text-center">
   <%= link_to 'Back to homepage', root_path, class: 'btn btn-check' %>
