@@ -168,25 +168,6 @@ class ScrappingJob < ApplicationJob
 
 
 
-  def profanity
-
-require "net/http"
-
-url = URI("https://api.promptapi.com/bad_words?censor_character=*")
-
-https = Net::HTTP.new(url.host, url.port);
-https.use_ssl = true
-
-request = Net::HTTP::Post.new(url)
-request['apikey'] = "P9EuaEEertmGmaMxaaWhmpQzLTKtM36i"
-request.body = "shit%20Hello%20how%20are%20you%20doing%20today%20merde%20slut%20%20bitch%20asshole%20dick%20redneck"
-response = https.request(request)
-puts response.read_body
-
-  end
-
-
-
   def resource_params
     params.require(:resource).permit(:data_type, :data)
   end

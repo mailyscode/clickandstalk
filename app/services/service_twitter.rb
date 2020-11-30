@@ -1,4 +1,4 @@
-    def collect_tweets
+    def scrap_twitter
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["TWITTER_API_KEY"]
       config.consumer_secret     = ENV["TWITTER_API_KEY_SECRET"]
@@ -18,7 +18,7 @@
     hashtags.each do |hashtag|
       @resource = Resource.new(
         data_type: "twitter",
-        data: { content: client.search("#") }
+        data: { hashtags: tweet.text.search_by("#") }
       )
       @resource.user = @user
       @resource.save
@@ -26,8 +26,8 @@
   end
 
 
-  def scrap_twitter
-  gbot = Grammarbot::Client.new(api_key: ENV["GRAMAR_BOT_KEY"], language: 'en-US', base_uri: 'http://api.grammarbot.io')
+  def check_grammar
+    gbot = Grammarbot::Client.new(api_key: ENV["GRAMAR_BOT_KEY"], language: 'en-US', base_uri: 'http://api.grammarbot.io')
     # gbot.api_key = 'new_api_key'
     # gbot.language = 'en-GB'
     # gbot.base_uri = 'http://pro.grammarbot.io'
@@ -41,5 +41,20 @@
       )
     end
     result = gbot.check(tweet).text
+  end
+
+
+  def profanity
+    require "net/http"
+    url = URI("https://api.promptapi.com/bad_words?censor_character=*")
+
+    https = Net::HTTP.new(url.host, url.port);
+    https.use_ssl = true
+
+    request = Net::HTTP::Post.new(url)
+    request['apikey'] = "P9EuaEEertmGmaMxaaWhmpQzLTKtM36i"
+    request.body = ""
+    response = https.request(request)
+    puts response.read_body
   end
 
