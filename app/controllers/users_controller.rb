@@ -20,4 +20,9 @@ class UsersController < ApplicationController
 
   def linkedin_page
   end
+
+  def twitter
+    @user = current_user
+    @resources = Resource.where(data_type: "twitter", user: @user)
+  end
 end
