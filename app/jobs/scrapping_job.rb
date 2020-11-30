@@ -10,6 +10,7 @@ class ScrappingJob < ApplicationJob
     scrap_insta
     scrap_linkedin
     collect_tweets
+    check_tweets
     # send email
   end
 
@@ -195,10 +196,10 @@ class ScrappingJob < ApplicationJob
   end
 
   def check_tweets
-  gbot = Grammarbot::Client.new(api_key: 'grammarbot_default_key', language: 'en-US', base_uri: 'http://api.grammarbot.io')
-    gbot.api_key = 'new_api_key'
-    gbot.language = 'en-GB'
-    gbot.base_uri = 'http://pro.grammarbot.io'
+    gbot = Grammarbot::Client.new(api_key: ENV["GRAMAR_BOT_KEY"], language: 'en-US', base_uri: 'http://api.grammarbot.io')
+    # gbot.api_key = 'new_api_key'
+    # gbot.language = 'en-GB'
+    # gbot.base_uri = 'http://pro.grammarbot.io'
     tweets = client.user_timeline(count: 10, include_rts: false)
     tweets.each do |tweet|
       @resource = Resource.new(
@@ -208,14 +209,13 @@ class ScrappingJob < ApplicationJob
       @resource.user = @user
       @resource.save
     end
-    results = gbot.check(tweets)
+    results = gbot.check(tweet)
   end
 
-
-  def profanity
-  end
+  # def profanity
+  # end
 
   def resource_params
     params.require(:resource).permit(:data_type, :data)
   end
-end
+# end
