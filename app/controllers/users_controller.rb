@@ -37,4 +37,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username_linkedin, :username_insta)
   end
+
+  def twitter
+    @user = current_user
+    @resources = Resource.where(data_type: "twitter", user: @user)
+  end
 end
