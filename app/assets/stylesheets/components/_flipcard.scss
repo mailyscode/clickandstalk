@@ -1,3 +1,11 @@
+.flipcards {
+  h6 {
+  color: $light-cornflower-blue;
+  font-size: 20px;
+  font-style: italic;
+  }
+}
+
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
@@ -74,4 +82,76 @@
 
 .flip-card-back.twitter {
     background-image: url("https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1615&q=80");
+  }
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-answer {
+  margin-top: 20px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-answer-inner {
+  position: relative;
+  width: 450px;
+  height: 50px;
+  text-align: center;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.2);
+} .answer {
+    text-align: center;
+    font-weight: bold;
+    h3 {
+      color: $blue-sapphire;
+      font-variant: small-caps;
+      font-size: 28px;
+      margin-bottom: 0px;
+      padding-top: 6px;
+    }
+    span {
+      color: $light-cornflower-blue;
+      font-size: 36px;
+      text-decoration: underline dotted $light-cornflower-blue;
+    }
+  }
+
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-answer:hover .flip-answer-inner {
+  transform: rotateX(180deg);
+}
+
+/* Position the front and back side */
+.flip-answer-front, .flip-answer-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+
+/* Style the back side */
+.flip-answer-back {
+  transform: rotateX(180deg);
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.2);
+} .answer {
+    text-align: center;
+    font-weight: bold;
+    h3 {
+      color: $blue-sapphire;
+      font-variant: small-caps;
+      font-size: 24px;
+      margin-bottom: 0px;
+      padding-top: 6px;
+    }
+    span {
+      color: $light-cornflower-blue;
+      font-size: 30px;
+      text-decoration: underline dotted $light-cornflower-blue;
+    }
   }

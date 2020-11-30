@@ -57,3 +57,25 @@
   background-size: 100% 100%;
   cursor: pointer;
 }
+
+.social-link {
+  a {
+  margin: 0 auto;
+  color: $blue-sapphire;
+  text-decoration: none;
+  font-size: 100px;
+  } a:hover {
+    color: $maximum-blue;
+  }
+}
+
+.link-insta {
+  a {
+  margin: 0 auto;
+  text-decoration: none;
+  font-size: 100px;
+  color: $honey-yellow;
+  } a:hover {
+    color: $orange-stalk;
+  }
+}
