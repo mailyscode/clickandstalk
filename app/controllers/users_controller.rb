@@ -25,6 +25,9 @@ class UsersController < ApplicationController
 
     Resource::DATA_KEY_LINKEDIN.each do |key|
       value = @user.resources.where(data_type: "linkedin").with_key(key).map(&key)
+      p "je suis ici"
+      p key
+      p value
       instance_variable_set("@#{key.to_s.pluralize}", value)
     end
   end
