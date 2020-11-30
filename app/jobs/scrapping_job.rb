@@ -208,13 +208,14 @@ class ScrappingJob < ApplicationJob
       @resource.save
       )
     end
-    result = gbot.check(tweet)
+    result = gbot.check(tweet).text
   end
 
-  def profanity
+  # def profanity
+  #   gbot = Grammarbot::Client.new(api_key: ENV["GRAMAR_BOT_KEY"], language: 'en-US', base_uri: 'http://api.grammarbot.io')
+  #   result = gbot.check(tweet)
 
-
-  end
+  # end
 
 
 
