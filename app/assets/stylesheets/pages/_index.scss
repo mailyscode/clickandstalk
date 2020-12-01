@@ -2,10 +2,16 @@
 @import "home";
 
 // LINKEDIN PAGE
-.linkedin span {
+.linkedin {
+  span {
   color: $blue-sapphire;
   font-weight: bold;
+  } hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }
+
 
 .title-container {
   justify-content: center;

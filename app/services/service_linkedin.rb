@@ -136,7 +136,7 @@ class ServiceLinkedin < ApplicationService
       Resource.create(
         data_type: "linkedin",
         data: {
-          experiences: {
+          experience: {
             company: s["companyName"],
             date: s["dateRange"].nil? ? false : (s["dateRange"]["end"].nil? ? (s['dateRange']['start']['year']).to_s : "#{s['dateRange']['start']['year']} - #{s['dateRange']['end']['year']}"),
             title: s["title"],

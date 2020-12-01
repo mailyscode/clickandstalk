@@ -3,11 +3,11 @@ class ScrappingJob < ApplicationJob
 
   def perform(user_id)
     # ScrappingInsta.new(user_id)
-    # ScrappingLinkedin.new(user_id).perform
+    ScrappingLinkedin.new(user_id).perform
     # ScrappingTwitter.new(user_id)
     # send email
-    mail = UserMailer.job_finish
-    mail.deliver_now
+    # mail = UserMailer.job_finish
+    # mail.deliver_now
   end
 
   private
