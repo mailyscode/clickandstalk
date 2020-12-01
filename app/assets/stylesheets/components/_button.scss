@@ -60,12 +60,18 @@
 
 .social-link {
   a {
+  align-self: center;
   margin: 0 auto;
+  margin-bottom: 40px;
   color: $blue-sapphire;
   text-decoration: none;
   font-size: 100px;
   } a:hover {
     color: $maximum-blue;
+  }
+  i {
+    color: $blue-sapphire;
+    margin-top: 40px;
   }
 }
 
@@ -73,9 +79,14 @@
   a {
   margin: 0 auto;
   text-decoration: none;
+  margin-bottom: 40px;
   font-size: 100px;
   color: $honey-yellow;
   } a:hover {
     color: $orange-stalk;
+  }
+  i {
+    color: $honey-yellow;
+    margin-top: 40px;
   }
 }
