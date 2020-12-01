@@ -1,66 +1,63 @@
   <div class="page-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80)">
   <div class="title-container">
-   <h1><strong>My Social Media Analysis</strong></h1>
+   <h1><strong style="color: white;">My Social Media Analysis</strong></h1>
   </div>
 </div>
 <br> <br>
- <h3 style="text-align: center"> We just stalked you ! Here is the data we collected about you...👀 </h3>
+ <h3 style="text-align: center; font-family: Roboto bold; font-size: 40px;"> We just stalked you ! Here is the data we collected about you...👀 </h3>
 <br> <br>
 
 <div class="main-card">
 
 
-  <div class="card-linkedin">
+  <div class="card-linkedin d-flex flex-column">
     <container class="flexbox mt-3">
-     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" alt="Avatar" style="width:100px;height:100px;">
-       @username_linkedin <%#= @user.username_linkedin %>
-      </container> <br>
-        <div>
-        <img src="https://www.flaticon.com/svg/static/icons/svg/921/921335.svg" style="width:50px;height:50px;">
-        You have less than 500 relations, please add more !
-        </div> <br>
-        <div align="left";>
-        <img src= "https://www.flaticon.com/svg/static/icons/svg/3135/3135729.svg" style="width:50px;height:50px;">
+      <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" alt="Avatar" style="width:100px;height:100px;">
+      @username_linkedin <%#= @user.username_linkedin %>
+    </container>
+      <div>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/921/921335.svg" style="width:50px;height:50px;float:left;">
+        You have less than 500 relations, <br> please add more !
+      </div> <br>
+      <div align="left">
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/3135/3135729.svg" style="width:50px;height:50px; float:left;  ">
         Add more skills !
-        </div>
-        <br>
-      <%=link_to "More info", linkedin_path, class:"btn btn-log mt-auto btn-block" %>
+      </div>
+      <br>
+      <%=link_to "More info", linkedin_path, class:"btn btn-log mt-auto btn-block  mt-auto"%>
   </div>
 
-<div class="card-insta" >
+<div class="card-insta d-flex flex-column" >
     <container class="flexbox mt-3">
       <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
-       @username_insta <%#= @user.username_insta %>
-       </container>
-        <br>
-        <div align="left";>
-        <img src="https://www.flaticon.com/svg/static/icons/svg/916/916762.svg" style="width:50px;height:50px;">
-        Your 3 most liked photos
-        </div> <br>
-        <div align="left";>
-        <img src="https://www.flaticon.com/svg/static/icons/svg/684/684809.svg" style="width:50px;height:50px;">
-        You have been in Italy, Spain and Costa Rica in the past year
-        </div>
-       <br>
-    <%=link_to "More info", instagram_path, class:"btn btn-log mt-auto btn-block" %>
+      @username_insta <%#= @user.username_insta %>
+    </container>
+    <div align="left">
+      <img src="https://www.flaticon.com/svg/static/icons/svg/916/916762.svg" style="width:50px;height:50px; padding-right: 10px; float:left;">
+       Your 3 most liked photos <br> <br>
+      <img src="https://www.flaticon.com/svg/static/icons/svg/684/684809.svg" style="width:50px;height:50px; float:left;">
+      <br> You have been in Italy, Spain and Costa Rica in the past year <br>
+      <img src="https://www.flaticon.com/svg/static/icons/svg/3587/3587071.svg" style="width:50px;height:50px; padding-right: 10px;">
+      Nudity detected !
+    </div>
+    <%=link_to "More info", instagram_path, class:"btn btn-log mt-auto btn-block mt-auto" %>
+
 </div>
 
 
-  <div class="card-twitter" >
+  <div class="card-twitter d-flex flex-column" >
     <container class="flexbox mt-3">
       <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;">
         @username_twitter <%#= @user.username_twitter %>
-         </container> <br>
-           <div align="left";>
-            <img src= "https://www.flaticon.com/svg/static/icons/svg/3260/3260057.svg" style="width:50px;height:50px;">
-          Your mother would'nt be happy if she knew you used these words
-          </div>
-          <div align="left";>
-        <img src= "https://www.flaticon.com/svg/static/icons/svg/1717/1717780.svg" style="width:50px;height:50px;">
+         </container>
+           <div align="left">
+            <img src= "https://www.flaticon.com/svg/static/icons/svg/3260/3260057.svg" style="width:50px;height:50px; padding-right: 10px; float:left; ">
+          Your mother would'nt be happy if she knew you used these words <br> <br> <br>
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/1717/1717780.svg" style="width:50px;height:50px; float:left; padding-right: 10px;">
       You have been using the hashtags "squirrel" and "tacos" a lot lately
       </div>
       <br>
-    <%=link_to "More info", twitter_path, class:"btn btn-log mt-auto btn-block" %>
+    <%=link_to "More info", twitter_path, class:"btn btn-log mt-auto btn-block mt-auto"  %>
     </div>
 </div>
 

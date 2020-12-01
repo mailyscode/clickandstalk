@@ -2,7 +2,6 @@ def intialize
 tweets = client.user_timeline(count: 10, include_rts: false)
 end
 
-
 def scrap_twitter
   client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV["TWITTER_API_KEY"]
@@ -64,4 +63,3 @@ end
     response = https.request(request)
     puts response.read_body
   end
-
