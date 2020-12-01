@@ -68,4 +68,4 @@ gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 
 gem 'twitter'
-
+gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
