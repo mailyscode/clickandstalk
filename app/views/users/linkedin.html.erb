@@ -7,57 +7,112 @@
 </div>
 
 
-<div class="container social-media-pages">
+<div class="container linkedin social-media-pages">
   <div class="card-title">
-    <h1>Profile</h1>
+    <h1><%=@profiles[0]["full_name"]%></h1>
   </div>
   <div class="card-details d-flex">
     <div class="twin-1 w-50">
-      <h3 style="white-space: pre-wrap;">Avatar</h3>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", style:"width:120px;", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <p>Studies have found that your LinkedIn profile is <strong>40% more likely</strong> to be clicked on if it contains a profile picture. Add yours!</p>
+      <% if @profiles[0]["profile_picture"].nil?   %>
+      <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/1041/1041891.svg", style:"width:120px; margin-top:15px;", 'aria-haspopup': true, 'aria-expanded': false %>
+      <p>Studies have found that your LinkedIn profile is <strong>40% more likely</strong> to be clicked on if it contains a profile picture. <span>Add yours!</span> </p>
+      <% else %>
+      <%= image_tag @profiles[0]["profile_picture"], class: "avatar dropdown-toggle", style:"width:150px; margin-top:15px;", 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
     </div>
     <div class="twin-2 w-50">
-      <h3 style="white-space: pre-wrap;">Connections</h3>
-      <p>You have <strong>100 connections</strong>.<br>It's not much, find more people you know!</p>
-      <p>Your headline :<strong>Teacher at @LeWagon</strong>.</p>
-      <p>Your search zone : <strong>Lyon and Greater Paris</strong> </p>
+      <% @connections.each do |c| %><p><%= c %></p><% end %>
+      <p><em><%=@profiles[0]["headline"]%></em></p>
+      <p class="inline-block"><%@geolocalisations.each do |geo|%><%= "- #{geo} " %><% end %></p>
     </div>
   </div>
+    <div class="card-details">
+      <% if @profiles[0]["summary"].nil? %>
+        <p>You haven't introduced yourself! <br> Add a short introduction to tease the recruiters' curiosity <i class="far fa-smile-wink" style="color:black"></i></p>
+      <% else %>
+        <%= @profiles[0]["summary"] %>
+      <% end %>
+    </div>
+
 
   <div class="twin-cards d-flex">
     <div class="twin-1 w-50 mr-3">
       <div class="card-title">
-        <h1>Experiences</h1>
+        <h1>Experiences <i class="fas fa-briefcase"></i></h1>
       </div>
       <div class="card-details">
-        <h3 style="white-space: pre-wrap;">Last experience</h3>
+        <h3 style="white-space: pre-wrap;">Industries you've worked in:</h3>
+          <ul class="skills list-inline flex-wrap">
+            <% @industries.each do |industry| %>
+              <li><%= industry%></li>
+            <% end %>
+          </ul>
         <p>Your last job ended in <strong>2018</strong>. Update your profile, tell the employers what you've been doing!</p>
       </div>
     </div>
-    <div class="twin-2 w-50">
+    <div class="twin-2 w-50 ml-5">
       <div class="card-title">
-        <h1>Education</h1>
+        <h1>Education <i class="fas fa-graduation-cap"></i></h1>
       </div>
       <div class="card-details">
-        <h3 style="white-space: pre-wrap;">Diploma level</h3>
+        <h3 style="white-space: pre-wrap;">Schools you went to:</h3>
+        <ul class="skills list-inline flex-wrap">
+          <% @schools.each do |school| %>
+            <li><%= school%></li>
+          <% end %>
+        </ul>
         <p>Your last/current diploma is <strong>Sustainable project management</strong>. Is this correct ?</p>
+          <% school_dates = [] %>
+          <% @educations.each do |edu| %>
+          <% school_dates << edu["date"] %>
+          <% end %>
+          <%= school_dates.max %>
       </div>
     </div>
   </div>
 
   <div class="card-title">
-    <h1>Skills</h1>
+    <h1>Talents <i class="far fa-heart"></i></h1>
   </div>
   <div class="card-details">
-    <p>Everyone has skills! Add skills so that recruiters can spot you according to what they need.</p>
+      <h3 style="white-space: pre-wrap;">Skills</h3>
+      <% if @skills.nil? %>
+        <p>Everyone has skills! Add skills so that recruiters can spot you according to what they need.</p>
+      <% else %>
+        <p>You have mentioned <strong><%= @skills.count %></strong> skills on your profile.</p>
+        <ul class="skills list-inline flex-wrap">
+          <% @skills.each do |skill| %>
+          <li><%= skill%></li>
+          <% end %>
+        </ul>
+        <p>Don't forget to ask your former employers <span>to add recommendations</span> to these skills  <i class="far fa-smile-wink" style="color:black"></i></p>
+      <% end %>
+
+      <h3 style="white-space: pre-wrap;">Honors & Languages</h3>
+      <% if @languages.nil? %>
+        <p>Add <strong>languages</strong> to your profile!</p>
+      <% else %>
+        <ul class="skills flex-wrap">
+          <% @languages.each do |l| %>
+          <li><%= l["name"] %> : <%= l["proficiency"].capitalize.gsub('_', ' ') %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <% if @honors.nil? %>
+        <p>Add <strong>honors</strong> to your profile!</p>
+      <% else %>
+        <ul class="skills list-inline flex-wrap">
+          <% @honors.each do |h| %>
+          <li><strong><%= h["title"] %></strong> - <%= h["issuer"] %></li>
+          <li><em><%= h["description"] %></em></li>
+          <% end %>
+        </ul>
+      <% end %>
     <hr>
-    <%= @profiles %>
-    <hr>
-    <%= @skills %>
-    <hr>
-    <%= @educations %>
   </div>
+
+
 
   <div class="social-link text-center">
     <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>

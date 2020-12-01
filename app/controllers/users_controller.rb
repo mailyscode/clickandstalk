@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    Resource.where(user: @user).destroy_all
+    @user.resources.destroy_all
     @user.update(user_params)
     redirect_to connect_path
   end
@@ -25,9 +25,6 @@ class UsersController < ApplicationController
 
     Resource::DATA_KEY_LINKEDIN.each do |key|
       value = @user.resources.where(data_type: "linkedin").with_key(key).map(&key)
-      p "je suis ici"
-      p key
-      p value
       instance_variable_set("@#{key.to_s.pluralize}", value)
       end
   end
@@ -38,9 +35,6 @@ class UsersController < ApplicationController
 
     Resource::DATA_KEY_TWITTER.each do |key|
       value = @user.resources.where(data_type: "twitter").with_key(key).map(&key)
-      p "je suis ici"
-      p key
-      p value
       instance_variable_set("@#{key.to_s.pluralize}", value)
     end
   end
