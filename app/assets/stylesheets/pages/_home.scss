@@ -1,3 +1,4 @@
+
 // Specific CSS for your home-page
 hr {
     margin: 0 auto;
@@ -12,6 +13,7 @@ hr {
 .main-page {
   h1 {
     color: $blue-sapphire;
+    padding-top: 80px;
   }
 }
 
@@ -31,7 +33,6 @@ hr {
 }
 
 .collect-info {
-  margin-top: 50px;
   margin-bottom: 25px;
   h1 {
     color: $blue-sapphire;
@@ -84,14 +85,10 @@ hr {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .info-source {
-    padding-left: 10px;
-    margin-bottom: 0px;
+  a {
     font-size: 14px;
     font-style: italic;
-     a {
     text-decoration: none;
     color: grey;
-    }
   }
 }

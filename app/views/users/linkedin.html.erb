@@ -1,6 +1,6 @@
 <div class="page-banner">
-  <div class="title-container d-flex flex-wrap">
-    <h1><span>Linkedin</span></h1>
+  <div class="title-container">
+    <h1><strong>Linkedin</strong></h1>
     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" style="width: 150px;height: 150px;">
     <h1>cyber-image</h1>
   </div>
@@ -8,53 +8,60 @@
 
 
 <div class="container social-media-pages">
-  <div class="card-title title-1">
+  <div class="card-title">
     <h1>Profile</h1>
   </div>
   <div class="card-details d-flex">
     <div class="twin-1 w-50">
       <h3 style="white-space: pre-wrap;">Avatar</h3>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", style:"width:120px;", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <p>In fact, studies have found that your LinkedIn profile is <span>40% more likely</span> to be clicked on if it contains a profile picture. Add yours!</p>
+      <p>Studies have found that your LinkedIn profile is <strong>40% more likely</strong> to be clicked on if it contains a profile picture. Add yours!</p>
     </div>
     <div class="twin-2 w-50">
       <h3 style="white-space: pre-wrap;">Connections</h3>
-      <p>You have <span>100 connections</span>.<br>It's not much, find more people you know!</p>
-      <p>Your headline :<span>Teacher at @LeWagon</span>.</p>
-      <p>Your search zone : <span>Lyon and Greater Paris</span> </p>
+      <p>You have <strong>100 connections</strong>.<br>It's not much, find more people you know!</p>
+      <p>Your headline :<strong>Teacher at @LeWagon</strong>.</p>
+      <p>Your search zone : <strong>Lyon and Greater Paris</strong> </p>
     </div>
   </div>
 
   <div class="twin-cards d-flex">
     <div class="twin-1 w-50 mr-3">
-      <div class="card-title title-2">
+      <div class="card-title">
         <h1>Experiences</h1>
       </div>
       <div class="card-details">
         <h3 style="white-space: pre-wrap;">Last experience</h3>
-        <p>Your last job ended in <span>2018</span>. Update your profile, tell the employers what you've been doing!</p>
+        <p>Your last job ended in <strong>2018</strong>. Update your profile, tell the employers what you've been doing!</p>
       </div>
     </div>
     <div class="twin-2 w-50">
-      <div class="card-title title-3">
+      <div class="card-title">
         <h1>Education</h1>
       </div>
       <div class="card-details">
         <h3 style="white-space: pre-wrap;">Diploma level</h3>
-        <p>Your last/current diploma is <span>Sustainable project management</span>. Is this correct ?</p>
+        <p>Your last/current diploma is <strong>Sustainable project management</strong>. Is this correct ?</p>
       </div>
     </div>
   </div>
 
-  <div class="card-title title-4">
+  <div class="card-title">
     <h1>Skills</h1>
   </div>
   <div class="card-details">
     <p>Everyone has skills! Add skills so that recruiters can spot you according to what they need.</p>
+    <hr>
+    <%= @profiles %>
+    <hr>
+    <%= @skills %>
+    <hr>
+    <%= @educations %>
   </div>
 
   <div class="social-link text-center">
-    <%= link_to '', "https://www.linkedin.com/#{current_user.username_insta}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-instagram" %>
+    <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
+    <%= link_to '', "https://www.linkedin.com/#{current_user.username_insta}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-linkedin" %>
   </div>
 
    <div class="text-center">
@@ -62,3 +69,4 @@
     </div>
 
 </div>
+
