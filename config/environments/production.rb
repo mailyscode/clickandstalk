@@ -91,9 +91,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.delivery_method     = :postmark
-  config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
-  config.action_mailer.default_url_options = { host: "www.clickandstalk.com" }
+  config.action_mailer.delivery_method     = :mailjet
+  # config.action_mailer.delivery_method_options   = { api_key: ENV['MAILJET_API'], secret_key: ENV['MAILJET_API_SECRET'] }
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write
