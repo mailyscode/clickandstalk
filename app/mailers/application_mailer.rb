@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@clickandstalk.com'
+  default from: 'clickandstalk@gmail.com'
+
   layout 'mailer'
 end
