@@ -13,20 +13,31 @@
   </div>
   <div class="card-details d-flex">
     <div class="twin-1 w-50">
-      <h3 style="white-space: pre-wrap;">Favorite words</h3>
+      <h3 style="white-space: pre-wrap;">Grammar mistakes</h3>
+      <p>You've mispelled some words:  <span> "3 experience"  </span> in your last 200 tweets.</p>
+      <p>You've mispelled some words:  <span> "joubs" </span> in your last 200 tweets.</p>
+      <p>You've mispelled some words:  <span>"makintg" </span> in your last 200 tweets.</p>
+      <%= @hashtags_sorted  %>
+    </div>
+    <div class="twin-1 w-50">
+      <h3 style="white-space: pre-wrap;">Bad words check</h3>
       <p>You've used <span>78 times </span> ' dudes ' in your last 200 tweets.</p>
       <p>You've used <span>44 times </span> ' damn ' in your last 200 tweets.</p>
       <p>You've used <span>21 times </span> ' amazing ' in your last 200 tweets.</p>
     </div>
+    <%= @tweets %>
     <div class="twin-2 w-50">
       <h3 style="white-space: pre-wrap;">Favorite hashtags</h3>
-      <p><span>#backfriday #nasa #blacklivesmatter #tmtc #IamWithFarmers</span></p>
+      <div class = "word-cloud">
+        <p><span>#backfriday #nasa #blacklivesmatter #tmtc #IamWithFarmers</span></p>
+      </div>
+       <%= @tweets %>
     </div>
   </div>
 
   <div class="social-link text-center">
     <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
-    <%= link_to '', "https://www.twitter.com/#{current_user.username_insta}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-twitter" %>
+    <%= link_to '', "https://www.twitter.com/#{current_user.username_twitter}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-twitter" %>
   </div>
 
    <div class="text-center">
