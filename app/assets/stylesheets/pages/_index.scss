@@ -31,14 +31,13 @@
 }
 
 .skills {
-  display: inline-flex;
   font-size: 12px;
   margin: 10px 40px;
   justify-content: center;
+  padding-left: 0px;
   li {
     font-size: 15px;
-    padding-right: 30px;
-    padding-bottom: 15px;
+    list-style-type: none;
   }
 }
 

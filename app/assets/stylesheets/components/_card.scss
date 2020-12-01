@@ -69,22 +69,20 @@ justify-content: center;
 
 
 .card-title {
-  border-radius: 50px;
-  box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.1);
+  color: $blue-sapphire;
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: 100%;
   margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 15px;
   text-align: center;
-  color: $blue-sapphire;
-  border: 2px solid $blue-sapphire;
   h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
     margin-bottom: 0px;
+  }
+  h3 {
+    font-size: 40px;
   }
 }
 
@@ -107,13 +105,13 @@ justify-content: center;
 }
 
 .card-details {
+  border-radius: 6px;
+  color: $blue-sapphire;
+  border: 1px solid $blue-sapphire;
   padding: 20px 10px;
   margin-bottom: 50px;
-  height: fit-content;
+  height: 400px;
   background-color: #F4F4F4;
-  box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.1);
-  border-radius: 4px;
-  border: 1px solid #F4F4F4;
   text-align: center;
   p {
     margin-bottom: 20px;
@@ -125,6 +123,10 @@ justify-content: center;
     text-align: center;
     color: $blue-sapphire;
   }
+}
+
+.card-details.small {
+  height: 250px !important;
 }
 
 
