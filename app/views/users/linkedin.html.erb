@@ -68,7 +68,6 @@
           <% end %>
           <%= school_dates.max %>
           <%= @educations %>
-          <%= @educations.select { |edu| edu.where("date"=> "#{school_dates.max}")} %>
         </div>
     </div>
   </div>
