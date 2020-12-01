@@ -30,7 +30,6 @@ body {
   }
 }
 
-
 h1 {
   font-family: Roboto;
   letter-spacing: 1.3px;
@@ -42,15 +41,14 @@ h1 {
   margin-right: 10px;
   font-size: 38px;
   color: $blue-sapphire;
+  font-weight: bold;
   span {
     color: $honey-yellow;
   }
 }
 
-span {
-  font-weight: bold;
-}
 .container {
   margin-top: 50px;
   margin-bottom: 50px;
+  width: 70vw;
 }

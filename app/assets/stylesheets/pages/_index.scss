@@ -2,26 +2,24 @@
 @import "home";
 
 // LINKEDIN PAGE
+.title-container {
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  h1 {
+    display: inline-block;
+    color: $blue-sapphire;
+    font-size: 60px;
+  }
+}
+
 .social-media-pages {
   p {
     font-size: 20px;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // TWITTER PAGE
-
-
 
 
 // INSTAGRAM PAGE
