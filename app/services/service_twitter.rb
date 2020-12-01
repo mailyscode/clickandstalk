@@ -69,4 +69,5 @@ class ServiceTwitter < ApplicationService
       response = https.request(request)
       puts response.read_body
     end
+  end
 end
