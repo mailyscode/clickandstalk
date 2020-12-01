@@ -30,7 +30,7 @@
       <% if @profiles[0]["summary"].nil? %>
         <p>You haven't introduced yourself! <br> Add a short introduction to tease the recruiters' curiosity <i class="far fa-smile-wink" style="color:black"></i></p>
       <% else %>
-        <%= @profiles[0]["summary"] %>
+        <i class="fas fa-quote-left"></i><%= @profiles[0]["summary"] %><i class="fas fa-quote-right"></i>
       <% end %>
     </div>
 
@@ -67,7 +67,9 @@
           <% school_dates << edu["date"] %>
           <% end %>
           <%= school_dates.max %>
-      </div>
+          <%= @educations %>
+          <%= @educations.select { |edu| edu.where("date"=> "#{school_dates.max}")} %>
+        </div>
     </div>
   </div>
 
