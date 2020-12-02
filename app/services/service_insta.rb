@@ -13,15 +13,15 @@ class ServiceInsta < ApplicationService
     collect_info
     collect_img_url
     collect_likes_views_loc
-    create_most_liked
     create_resource
+    quit_driver
   end
 
   private
 
   def allow_cookies
     # autorisation des cookies
-    @driver.navigate.to "https://www.instagram.com/#{@username_insta}"
+    @driver.navigate.to "https://www.instagram.com/#{@username}"
     @driver.find_element(:css, '.aOOlW.bIiDR').click
     sleep 2
   end
@@ -42,7 +42,7 @@ class ServiceInsta < ApplicationService
 
   def collect_info
     # on navigue jusqu'au compte insta et recupere bio plus nb de followers
-    @driver.navigate.to "https://www.instagram.com/#{@username_insta}"
+    @driver.navigate.to "https://www.instagram.com/#{@username}"
     sleep 2
     followers = @driver.find_element(:css, '.Y8-fY a span').attribute('innerHTML')
     bio = @driver.find_element(:css, '.-vDIg span').attribute('innerHTML')
@@ -54,7 +54,7 @@ class ServiceInsta < ApplicationService
   end
 
   def collect_img_url
-    10.times do
+    5.times do
       begin
         @driver.execute_script('window.scrollTo(0, document.body.scrollHeight)')
         urls = @driver.find_elements(:css, '.v1Nh3.kIKUG._bz0w a')
@@ -97,5 +97,9 @@ class ServiceInsta < ApplicationService
         user: @user
       )
     end
+  end
+
+  def quit_driver
+    @driver.quit
   end
 end
