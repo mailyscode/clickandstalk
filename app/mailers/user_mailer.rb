@@ -4,10 +4,10 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.job_finish.subject
   #
-  def job_finish
-    @user = User.first
+  def job_finish(user_id)
+    @user = User.find(user_id)
     mail(
-      to: "melik.sak@gmail.com",
+      to: @user.email,
       subject: 'Your cyber image checkout is done!'
     )
   end
