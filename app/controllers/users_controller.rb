@@ -3,13 +3,16 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def wait
+  end
+
   def dashboard
     @user = current_user
   end
 
   def checkme
     ScrappingJob.perform_later(current_user.id)
-    redirect_to dashboard_path
+    redirect_to wait_path
   end
 
   def update

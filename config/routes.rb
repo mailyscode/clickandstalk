@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   get 'user/connect', to: 'users#connect', as: :connect
-  get 'user/wait-for-result', to: 'users#wait-for-result', as: :wait
+  get 'user/wait', to: 'users#wait', as: :wait
   get 'user/checkme', to: 'users#checkme', as: :checkme
   get 'user/twitter', to: 'users#twitter', as: :twitter
   get 'user/instagram', to: 'users#instagram', as: :instagram
