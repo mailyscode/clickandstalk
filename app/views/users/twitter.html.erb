@@ -10,28 +10,43 @@
 <div class="container social-media-pages">
   <div class="card-title title-1">
     <h1>Summary</h1>
+    <%= @user.username_twitter.capitalize %>
+
   </div>
   <div class="card-details d-flex">
+    <div class="twin-1 w-50">
+      <h3 style="white-space: pre-wrap;">Your last tweets</h3>
+      <% @contents.each do |tweet|%>
+        <div class="card-twitter w-80" style="height: 30px; text-align: center;"><%= tweet %></div>
+      <% end %>
+
+
+    </div>
+ <!--  <div class="card-details d-flex">
     <div class="twin-1 w-50">
       <h3 style="white-space: pre-wrap;">Grammar mistakes</h3>
       <p>You've mispelled some words:  <span> "3 experience"  </span> in your last 200 tweets.</p>
       <p>You've mispelled some words:  <span> "joubs" </span> in your last 200 tweets.</p>
       <p>You've mispelled some words:  <span>"makintg" </span> in your last 200 tweets.</p>
-      <%= @hashtags_sorted  %>
-    </div>
+
+    </div> -->
     <div class="twin-1 w-50">
-      <h3 style="white-space: pre-wrap;">Bad words check</h3>
-      <p>You've used <span>78 times </span> ' dudes ' in your last 200 tweets.</p>
-      <p>You've used <span>44 times </span> ' damn ' in your last 200 tweets.</p>
-      <p>You've used <span>21 times </span> ' amazing ' in your last 200 tweets.</p>
+      <h3 style="white-space: pre-wrap;">Be careful you made some mistakes</h3>
+    <ul>
+        <% @mistakes.each do |word| %>
+          <% unless word.nil? %>
+            <li class= "li"><%= word.flatten[1] %></li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
-    <%= @tweets %>
     <div class="twin-2 w-50">
       <h3 style="white-space: pre-wrap;">Favorite hashtags</h3>
       <div class = "word-cloud">
-        <p><span>#backfriday #nasa #blacklivesmatter #tmtc #IamWithFarmers</span></p>
+        <% @hashtags.first.each do |hashtag| %>
+          <%= hashtag.first%>
+          <% end %>
       </div>
-       <%= @tweets %>
     </div>
   </div>
 
