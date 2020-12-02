@@ -30,7 +30,7 @@
         <h1 style="white-space: pre-wrap;">Avatar <i class="fas fa-user-circle"></i></h1>
       </div>
       <div class="card-details small">
-        <% if @profiles[0]["profile_picture"] == false %>
+        <%# if @profiles[0]["profile_picture"] == false %>
           <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/1041/1041891.svg", style:"width:120px; margin-top:30px;", 'aria-haspopup': true, 'aria-expanded': false %>
           <p>Studies have found a LinkedIn profile is <strong>40% more likely</strong> to be clicked on if it contains a profile picture. <span>Add yours!</span> </p>
           <% missing_info << '<li><a href="#user-avatar">Missing an avatar</a></li>' %>
