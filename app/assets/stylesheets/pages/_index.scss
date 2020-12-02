@@ -114,4 +114,42 @@
     text-align: center;
 }
 
+.circle-twi {
+    background: #8ecae6ff;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    text-align: center;
+    line-height:90px;
+    font-weight: bold;
+    color: white;
+    margin-left: 20px;
+
+}
+
+.tweet {
+   vertical-align: middle;
+   text-align: center;
+   display: center;
+}
+
+.mistakes {
+  display: block;
+  top: 0px;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: #F4F4F4;
+  box-shadow: 0px 2px 4px #fb8500ff;
+  box-shadow: rgba(38, 38, 38, 0.2);
+  margin: 0 auto;
+  margin-top: 50 px;
+  display: center;
+  text-align: center;
+  font-family: Roboto;
+  background: white;
+  // background: -webkit-linear-gradient(bottom, top, #F4F4F4,#F4F4F4 30%, white 30%, white);
+}
+
 // INSTAGRAM PAGE
