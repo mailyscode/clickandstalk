@@ -9,14 +9,14 @@
 
 <div class="container social-media-pages">
 
-  <div class="final-score">
-    <div class="user-name">
-      <h1><%=@profiles[0]["full_name"]%></h1>
+  <div class="user-score d-flex">
+    <div class="user-name w-50">
+      <div id="score-data">
+      </div>
     </div>
-    <div class="display-score">
-      <div class="score-bar"></div>
-      <p>Missing information !</p>
-      <p id="score-bar" class="list-inline">Your profile is </p><p>complete.</p>
+    <div class="display-score w-50">
+      <p>Your profile is not complete!</p>
+      <p>Look for <span>missing information</span> to reach 100%</p>
     </div>
   </div>
 
@@ -190,7 +190,7 @@
       <div id="user-skills" class="card-title">
         <h1 style="white-space: pre-wrap;">Skills <i class="fas fa-lightbulb"></i></h1>
       </div>
-      <div class="card-details small d-flex">
+      <div class="card-details d-flex">
         <div class="skills-list w-50">
           <% number_of_skills = @skills.count.to_i %>
           <% if number_of_skills <= 4 %>
@@ -217,9 +217,9 @@
       </div>
       <div class="card-details small d-flex">
         <% if @languages.empty? %>
-          <p><span>Add languages</span>!</p>
+          <p><span>Add languages!</span></p>
         <% elsif @languages.each do |language| %>
-          <p><%= language["name"] %> : <br><span>Add a level</span></p><% if language["proficiency"].empty? %>
+          <p><%= language["name"] %> : <br><span>Add your level</span></p><% if language["proficiency"].empty? %>
           <% end %>
           <% end %>
           <% counter += 10 %>
@@ -241,7 +241,7 @@
       </div>
       <div class="card-details small d-flex">
         <% if @honors.empty? %>
-          <p>If you've ever had <strong>honors</strong> (of any kind!), don't be shy to <span>add it to your profile</span>! You never know what might make a difference <i class="far fa-smile-wink" style="color:black"></i></p>
+          <p>If you've ever had <strong>honors</strong> (of any kind!), don't be shy to <span>add it to your profile</span> ! You never know what might make a difference <i class="far fa-smile-wink" style="color:black"></i></p>
         <% else %>
           <ul class="skills list-inline flex-wrap">
             <% @honors.each do |h| %>
