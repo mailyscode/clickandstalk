@@ -9,20 +9,21 @@
 
 <div class="container social-media-pages">
 
-  <div class="user-score d-flex">
-    <div class="user-name w-50">
-      <div id="score-data">
-      </div>
-    </div>
-    <div class="display-score w-50">
+  <div class="user-score">
+    <div class="display-score">
       <p>Your profile is not complete!</p>
       <p>Look for <span>missing information</span> to reach 100%</p>
+    </div>
+    <div id="score-data">
+    </div>
+    <div id="missing-data">
     </div>
   </div>
 
 
   <!-- COUNTER -->
   <% counter = 0 %>
+  <% missing_info = [] %>
 
     <div class="cards">
       <div id="user-avatar" class="card-title">
@@ -32,6 +33,7 @@
         <% if @profiles[0]["profile_picture"] == false %>
           <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/1041/1041891.svg", style:"width:120px; margin-top:30px;", 'aria-haspopup': true, 'aria-expanded': false %>
           <p>Studies have found a LinkedIn profile is <strong>40% more likely</strong> to be clicked on if it contains a profile picture. <span>Add yours!</span> </p>
+          <% missing_info << '<li><a href="#user-avatar">Missing an avatar</a></li>' %>
         <% else %>
           <%= image_tag @profiles[0]["profile_picture"], class: "avatar dropdown-toggle", style:"width:150px; margin-top:15px;", 'aria-haspopup': true, 'aria-expanded': false %>
           <% counter += 10 %>
@@ -53,9 +55,11 @@
           <p><%= @connections[0] %></p>
           <% counter += 20 %>
         <% elsif number_of_contacts < 100 %>
-          <p>Increase your connections to be more visible by recruiters!</p>
+          <p><span>Increase your connections</span> to be more visible by recruiters!</p>
+          <% missing_info << '<li><a href="#user-connections">Connect to more people</a></li>' %>
         <% else %>
           <p>You could still <span>connect to more people</span> !</p>
+          <% missing_info << '<li><a href="#user-connections">Connect to more people</a></li>' %>
           <% counter += 10 %>
         <% end %>
       </div>
@@ -70,6 +74,7 @@
       <div class="card-details small">
         <% if @profiles[0]["headline"].nil? %>
           <p><span>Add a headline</span> to catch recruiters' eyes!</p>
+          <% missing_info << '<li><a href="#user-headline">Missing a headline</a></li>' %>
         <% else %>
           <p><%= @profiles[0]["headline"]%></p>
           <% counter += 10 %>
@@ -86,6 +91,7 @@
       <div class="card-details small">
         <% if @profiles[0]["summary"] == false %>
           <p>You haven't introduced yourself! <br> <span>Add a short introduction</span> to tease recruiters' curiosity <i class="far fa-smile-wink" style="color:black"></i></p>
+          <% missing_info << '<li><a href="#user-summary">Missing an introduction</a></li>' %>
         <% else %>
           <p><i class="fas fa-quote-left">&nbsp;</i><%= @profiles[0]["summary"].truncate_words(20, omission: '...') %>&nbsp;<i class="fas fa-quote-right"></i></p>
           <% counter += 10 %>
@@ -95,14 +101,15 @@
 
 
     <div class="cards">
-      <div class="card-title">
+      <div id="user-experience" class="card-title">
         <h1>Experiences <i class="fas fa-briefcase"></i></h1>
       </div>
       <div class="card-details d-flex">
-          <div class="experience-glance w-50">
+        <div class="experience-glance w-50">
           <% if @experiences.empty? %>
             <p>It seems like you've never worked. Is that right ?</p>
             <p>If so, don't be shy to <span>add extra-curricular activities</span>. It's always good to know <i class="far fa-smile-wink" style="color:black"></i></p>
+          <% missing_info << '<li><a href="#user-experience">Never worked ?</a></li>' %>
           <% else %>
             <p style="white-space: pre-wrap;">Your experiences at a glance :</p>
             <ul class="skills flex-wrap">
@@ -121,6 +128,7 @@
 
             <% if empty_date %>
             <p>Add dates to your professional experience!</p>
+            <% missing_info << '<li><a href="#user-experience">Missing dates on experiences</a></li>' %>
             <% else %>
               <% single_dates = experiences_dates.reject { |x| x.match(/^(19|20)\d\d\s-\s(19|20)\d\d$/) } %>
                 <% if single_dates.empty? %>
@@ -137,12 +145,12 @@
             <% end %>
             <% counter += 10 %>
           <% end %>
-          </div>
+        </div>
       </div>
     </div>
 
     <div class="cards">
-      <div class="card-title">
+      <div id="user-education" class="card-title">
         <h1>Education <i class="fas fa-graduation-cap"></i></h1>
       </div>
       <div class="card-details d-flex">
@@ -150,6 +158,7 @@
         <% if @educations.empty? %>
           <p>It seems like you've never been to school. Is that right ?</p>
           <p><span>Let recruiters know</span> what you've studied !</p>
+          <% missing_info << '<li><a href="#user-education">Never been to school ?</a></li>' %>
         <% else %>
           <p style="white-space: pre-wrap;">Your education at a glance :</p>
           <ul class="skills flex-wrap">
@@ -172,6 +181,7 @@
 
           <% if empty_date %>
           <p><span>Add dates to your course!</span></p>
+          <% missing_info << '<li><a href="#user-education">Missing dates on courses</a></li>' %>
           <% else %>
             <% last_education_date =  school_dates.max %>
             <% last_education_school = @educations.find { |edu| edu["date"] == last_education_date } %>
@@ -196,6 +206,7 @@
           <% if number_of_skills <= 4 %>
             <p><span>Add skills</span> so that recruiters can spot your talents!</p>
             <p>And don't forget to ask your former employers for <strong>recommendations</strong> on your skills !</p>
+            <% missing_info << '<li><a href="#user-skills">Missing skills</a></li>' %>
         </div>
         <div class="skills-list w-50">
           <% else %>
@@ -218,10 +229,12 @@
       <div class="card-details small d-flex">
         <% if @languages.empty? %>
           <p><span>Add languages!</span></p>
+          <% missing_info << '<li><a href="#user-languages">Missing foreign languages</a></li>' %>
         <% elsif @languages.each do |language| %>
-          <p><%= language["name"] %> : <br><span>Add your level</span></p><% if language["proficiency"].empty? %>
+            <p><%= language["name"] %> : <br><span>Add your level</span></p><% if language["proficiency"].empty? %>
+            <% end %>
           <% end %>
-          <% end %>
+          <% missing_info << '<li><a href="#user-languages">Missing language level</a></li>' %>
           <% counter += 10 %>
         <% else %>
           <ul class="skills flex-wrap">
@@ -255,6 +268,9 @@
 
   <div class="metadata">
     <meta name="score" id="score" content="<%= counter %>">
+  </div>
+
+  <div id="missing-information" data-info="<%= missing_info.to_json %>">
   </div>
 
   <div class="social-link text-center">
