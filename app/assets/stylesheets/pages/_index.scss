@@ -2,13 +2,18 @@
 @import "home";
 
 // LINKEDIN PAGE
-.linkedin {
-  span {
-  color: $blue-sapphire;
-  font-weight: bold;
-  } hr {
-    margin-top: 15px;
-    margin-bottom: 15px;
+.final-score {
+  margin: 30px 0;
+  padding: 30px 30px;
+  background-color: $blue-sapphire;
+  color: white;
+  border-radius: 10px;
+  border: 3px solid white;
+  opacity: 0.9;
+  text-align: center;
+  justify-content: center;
+  .user-name {
+    font-weight: bold;
   }
 }
 

@@ -106,27 +106,36 @@ justify-content: center;
 
 .card-details {
   border-radius: 6px;
-  color: $blue-sapphire;
-  border: 1px solid $blue-sapphire;
-  padding: 20px 10px;
-  margin-bottom: 50px;
-  height: 400px;
   background-color: #F4F4F4;
+  border: 1px dashed $blue-sapphire;
+  opacity: 0.9;
+  color: $blue-sapphire;
+  padding: 10px 20px;
+  margin-bottom: 70px;
+  height: fit-content;
   text-align: center;
+  justify-content: center;
+
   p {
     margin-bottom: 20px;
     margin-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
+    align-self: center;
   }
   h3 {
     text-align: center;
     color: $blue-sapphire;
   }
+  span {
+    color: #d62828;
+    font-weight: bold;
+  }
 }
 
-.card-details.small {
-  height: 250px !important;
+.cards-medium {
+  width: 60%;
+  height: fit-content;
 }
 
 

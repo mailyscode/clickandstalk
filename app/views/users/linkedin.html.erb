@@ -7,21 +7,24 @@
 </div>
 
 
-<div class="container linkedin social-media-pages">
-  <div class="card-title">
-    <h1><%=@profiles[0]["full_name"]%></h1>
+<div class="container social-media-pages">
+
+  <div class="final-score">
+    <div class="user-name">
+      <h1><%=@profiles[0]["full_name"]%></h1>
+    </div>
+    <div class="display-score">
+      <div class="score-bar"></div>
+      <p>Missing information !</p>
+      <p id="score-bar" class="list-inline">Your profile is </p><p>complete.</p>
+    </div>
   </div>
 
 
   <!-- COUNTER -->
   <% counter = 0 %>
 
-
-
- <hr>
- <hr>
-  <div class="twin-cards d-flex">
-    <div class="twin-1 w-50 mr-3">
+    <div class="cards">
       <div id="user-avatar" class="card-title">
         <h1 style="white-space: pre-wrap;">Avatar <i class="fas fa-user-circle"></i></h1>
       </div>
@@ -38,7 +41,7 @@
 
 
 
-    <div class="twin-2 w-50 ml-5">
+    <div class="cards">
       <div id="user-connections" class="card-title">
         <h1 style="white-space: pre-wrap;">Connections <i class="far fa-handshake"></i></h1>
       </div>
@@ -52,21 +55,21 @@
         <% elsif number_of_contacts < 100 %>
           <p>Increase your connections to be more visible by recruiters!</p>
         <% else %>
-          <p>You could still connect to more people!</p>
+          <p>You could still <span>connect to more people</span> !</p>
           <% counter += 10 %>
         <% end %>
       </div>
     </div>
-  </div>
 
-    <div class="twin-cards d-flex">
-    <div class="twin-1 w-50 mr-3">
+
+
+    <div class="cards">
       <div id="user-headline" class="card-title">
         <h1 style="white-space: pre-wrap;">Headline</h1>
       </div>
       <div class="card-details small">
         <% if @profiles[0]["headline"].nil? %>
-          <p>Add a <strong>headline</strong> to catch recruiters' eyes!</p>
+          <p><span>Add a headline</span> to catch recruiters' eyes!</p>
         <% else %>
           <p><%= @profiles[0]["headline"]%></p>
           <% counter += 10 %>
@@ -76,78 +79,80 @@
 
 
 
-    <div class="twin-2 w-50 ml-5">
+    <div class="cards">
       <div id="user-summary" class="card-title">
         <h1 style="white-space: pre-wrap;">Summary </i></h1>
       </div>
       <div class="card-details small">
         <% if @profiles[0]["summary"] == false %>
-          <p>You haven't introduced yourself! <br> Add a short introduction to tease recruiters' curiosity <i class="far fa-smile-wink" style="color:black"></i></p>
+          <p>You haven't introduced yourself! <br> <span>Add a short introduction</span> to tease recruiters' curiosity <i class="far fa-smile-wink" style="color:black"></i></p>
         <% else %>
-          <p><i class="fas fa-quote-left"> </i><%= @profiles[0]["summary"].truncate_words(20, omission: '...') %> <i class="fas fa-quote-right"></i></p>
+          <p><i class="fas fa-quote-left">&nbsp;</i><%= @profiles[0]["summary"].truncate_words(20, omission: '...') %>&nbsp;<i class="fas fa-quote-right"></i></p>
           <% counter += 10 %>
         <% end %>
       </div>
     </div>
-  </div>
 
 
-  <div class="twin-cards d-flex">
-    <div class="twin-1 w-50 mr-3">
+    <div class="cards">
       <div class="card-title">
         <h1>Experiences <i class="fas fa-briefcase"></i></h1>
       </div>
-      <div class="card-details">
-        <% if @experiences.nil? %>
-          <p>It seems like you've never worked. Is that right ?</p>
-          <p>If so, don't be shy to add extra-curricular activities. It's always good to know <i class="far fa-smile-wink" style="color:black"></i></p>
-        <% else %>
-          <p style="white-space: pre-wrap;">Your experience at a glance :</p>
-          <ul class="skills flex-wrap">
-            <% @experiences.each do |exp| %>
-              <li><%= exp["title"] %> at <%= exp["company"] %></li>
-            <% end %>
-          </ul>
-
-          <hr>
-          <% empty_date = false %>
-          <% experiences_dates = [] %>
-          <% @experiences.each do |exp| %>
-          <% empty_date = true if exp["date"] == false %>
-          <% experiences_dates << exp["date"] %>
-          <% end %>
-
-          <% if empty_date %>
-          <p>Add dates to your professional experience!</p>
+      <div class="card-details d-flex">
+          <div class="experience-glance w-50">
+          <% if @experiences.empty? %>
+            <p>It seems like you've never worked. Is that right ?</p>
+            <p>If so, don't be shy to <span>add extra-curricular activities</span>. It's always good to know <i class="far fa-smile-wink" style="color:black"></i></p>
           <% else %>
-            <% single_dates = experiences_dates.reject { |x| x.match(/^(19|20)\d\d\s-\s(19|20)\d\d$/) } %>
-              <% if single_dates.empty? %>
-                <% last_experience_date =  experiences_dates.max %>
-                <% last_experience_company = @experiences.find { |exp| exp["date"] == last_experience_date } %>
-                <p>Your last experience was <br>from <%= last_experience_date.gsub('-', ' to ') %> <br>at <strong><%= last_experience_company["company"] %></strong></p>
-              <% else  %>
-                <% last_experience_date = single_dates.max %>
-                <% last_experience_company = @experiences.find { |exp| exp["date"] == last_experience_date } %>
-                <p>You've been working since <%= last_experience_date %> <br>at <strong><%= last_experience_company["company"] %></strong>.</p>
+            <p style="white-space: pre-wrap;">Your experiences at a glance :</p>
+            <ul class="skills flex-wrap">
+              <% @experiences.each do |exp| %>
+                <li><%= exp["title"] %></li>
               <% end %>
-            <p>Is this correct ? If not, update it <i class="far fa-smile-wink" style="color:black"></i></p>
+            </ul>
+          </div>
+          <div class="experience-last w-50">
+            <% empty_date = false %>
+            <% experiences_dates = [] %>
+            <% @experiences.each do |exp| %>
+            <% empty_date = true if exp["date"] == false %>
+            <% experiences_dates << exp["date"] %>
+            <% end %>
+
+            <% if empty_date %>
+            <p>Add dates to your professional experience!</p>
+            <% else %>
+              <% single_dates = experiences_dates.reject { |x| x.match(/^(19|20)\d\d\s-\s(19|20)\d\d$/) } %>
+                <% if single_dates.empty? %>
+                  <% last_experience_date =  experiences_dates.max %>
+                  <% last_experience_company = @experiences.find { |exp| exp["date"] == last_experience_date } %>
+                  <p style="white-space: pre-wrap;">Your last experience :</p>
+                  <p>from <%= last_experience_date.gsub('-', ' to ') %> <br>at <strong><%= last_experience_company["company"] %></strong></p>
+                <% else  %>
+                  <% last_experience_date = single_dates.max %>
+                  <% last_experience_company = @experiences.find { |exp| exp["date"] == last_experience_date } %>
+                  <p>You've been working since <%= last_experience_date %> <br>at <strong><%= last_experience_company["company"] %></strong>.</p>
+                <% end %>
+              <p>Is this correct ? If not, <strong>update</strong> it <i class="far fa-smile-wink" style="color:black"></i></p>
+            <% end %>
+            <% counter += 10 %>
           <% end %>
-          <% counter += 10 %>
-        <% end %>
+          </div>
       </div>
     </div>
 
-    <div class="twin-2 w-50 ml-5">
+    <div class="cards">
       <div class="card-title">
         <h1>Education <i class="fas fa-graduation-cap"></i></h1>
       </div>
-      <div class="card-details">
-        <% if @educations.nil? %>
+      <div class="card-details d-flex">
+        <div class="education-glance w-50">
+        <% if @educations.empty? %>
           <p>It seems like you've never been to school. Is that right ?</p>
-          <p>Let recruiters know what you've studied !</p>
+          <p><span>Let recruiters know</span> what you've studied !</p>
         <% else %>
           <p style="white-space: pre-wrap;">Your education at a glance :</p>
-          <ul class="skills list-inline flex-wrap">
+          <ul class="skills flex-wrap">
             <% degrees = [] %>
             <% @educations.each do |edu| %>
               <li><%= edu["school"] %></li>
@@ -156,8 +161,8 @@
               <% end %>
             <% end %>
           </ul>
-
-          <hr>
+        </div>
+        <div class="education-last w-50">
           <% empty_date = false %>
           <% school_dates = [] %>
           <% @educations.each do |edu| %>
@@ -166,47 +171,57 @@
           <% end %>
 
           <% if empty_date %>
-          <p><strong>Add dates to your course!</strong></p>
+          <p><span>Add dates to your course!</span></p>
           <% else %>
             <% last_education_date =  school_dates.max %>
             <% last_education_school = @educations.find { |edu| edu["date"] == last_education_date } %>
-            <p>Your most recent course was <br>from <%= last_education_date.gsub('-', ' to ') %> <br>at <strong><%= last_education_school["school"] %></strong></p>
-            <p>Is this correct ? If not, update it <i class="far fa-smile-wink" style="color:black"></i></p>
+            <p style="white-space: pre-wrap;">Your most recent course :</p>
+            <p>from <%= last_education_date.gsub('-', ' to ') %> <br>at <strong><%= last_education_school["school"] %></strong></p>
+            <p>Is this correct ? If not, <strong>update</strong> it <i class="far fa-smile-wink" style="color:black"></i></p>
           <% end %>
           <% counter += 10 %>
         <% end %>
+        </div>
       </div>
     </div>
-  </div>
 
 
-    <div class="twin-cards d-flex">
-    <div class="w-50 ml-5 mr-5">
+    <div class="cards">
       <div id="user-skills" class="card-title">
-        <h3 style="white-space: pre-wrap;">Skills <br><i class="fas fa-lightbulb"></i></h3>
+        <h1 style="white-space: pre-wrap;">Skills <i class="fas fa-lightbulb"></i></h1>
       </div>
-      <div class="card-details">
-        <% number_of_skills = @skills.count.to_i %>
-        <% if number_of_skills <= 4 %>
-          <p><strong>Add skills</strong> so that recruiters can spot your talents!</p>
-          <p>And don't forget to ask your former employers for <span>recommendations</span> on your skills <i class="far fa-smile-wink" style="color:black"></i></p>
-        <% else %>
-          <% @skills.sample(5) %>
-          <p>Ask former employers for <span>recommendations</span> on your skills <i class="far fa-smile-wink" style="color:black"></i></p>
-          <% counter += 10 %>
-        <% end %>
+      <div class="card-details small d-flex">
+        <div class="skills-list w-50">
+          <% number_of_skills = @skills.count.to_i %>
+          <% if number_of_skills <= 4 %>
+            <p><span>Add skills</span> so that recruiters can spot your talents!</p>
+            <p>And don't forget to ask your former employers for <strong>recommendations</strong> on your skills !</p>
+        </div>
+        <div class="skills-list w-50">
+          <% else %>
+            <ul class="skills flex-wrap">
+              <% @skills.sample(5).each do |skill| %>
+                <li><%= skill %></li>
+              <% end %>
+            </ul>
+            <p>Ask former employers for <strong>recommendations</strong> on your skills !</p>
+            <% counter += 10 %>
+          <% end %>
+        </div>
       </div>
     </div>
 
-    <div class="w-50 ml-5 mr-5">
+    <div class="cards">
       <div id="user-languages" class="card-title">
-        <h3 style="white-space: pre-wrap;">Languages <br><i class="fas fa-comments"></i></h3>
+        <h1 style="white-space: pre-wrap;">Languages <i class="fas fa-comments"></i></h1>
       </div>
-      <div class="card-details">
+      <div class="card-details small d-flex">
         <% if @languages.empty? %>
-          <p><strong>Add languages</strong>!</p>
-        <% elsif @languages["proficiency"].empty? %>
-          <p><strong>Add a level</strong> to the languages you speak!</p>
+          <p><span>Add languages</span>!</p>
+        <% elsif @languages.each do |language| %>
+          <p><%= language["name"] %> : <br><span>Add a level</span></p><% if language["proficiency"].empty? %>
+          <% end %>
+          <% end %>
           <% counter += 10 %>
         <% else %>
           <ul class="skills flex-wrap">
@@ -220,23 +235,26 @@
     </div>
 
 
-    <div class="w-50 ml-5 mr-5">
+    <div class="cards">
       <div id="user-honors" class="card-title">
-        <h3 style="white-space: pre-wrap;">Honors <br><i class="fas fa-award"></i></h3>
+        <h1 style="white-space: pre-wrap;">Honors <i class="fas fa-award"></i></h1>
       </div>
-      <div class="card-details">
+      <div class="card-details small d-flex">
         <% if @honors.empty? %>
-          <p>If you've ever had <strong>honors</strong> (of any kind!), don't be shy to add it to your profile! You never know what might make a difference <i class="far fa-smile-wink" style="color:black"></i></p>
+          <p>If you've ever had <strong>honors</strong> (of any kind!), don't be shy to <span>add it to your profile</span>! You never know what might make a difference <i class="far fa-smile-wink" style="color:black"></i></p>
         <% else %>
           <ul class="skills list-inline flex-wrap">
             <% @honors.each do |h| %>
-            <li><strong><%= h["title"] %></strong> - <%= h["issuer"] %></li>
-            <li><em><%= h["description"] %></em></li>
+            <li><strong><%= h["title"] %></strong></li>
+            <li>( from <%= h["issuer"] %> )</li>
             <% end %>
           </ul>
         <% end %>
       </div>
     </div>
+
+  <div class="metadata">
+    <meta name="score" id="score" content="<%= counter %>">
   </div>
 
   <div class="social-link text-center">
@@ -244,9 +262,7 @@
     <%= link_to '', "https://www.linkedin.com/#{current_user.username_insta}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-linkedin" %>
   </div>
 
-   <div class="text-center">
+  <div class="text-center">
     <%= link_to "Back to Dashboard", dashboard_path, class:"btn btn-back" %>
-    </div>
-
-</div>
+  </div>
 
