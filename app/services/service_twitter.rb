@@ -10,6 +10,7 @@ class ServiceTwitter < ApplicationService
       config.access_token_secret = @user.twitter_oauth_data["secret"]
     end
     @tweets = @client.user_timeline(count: 10, include_rts: false)
+    @hashtags = {}
   end
 
   def call
@@ -63,10 +64,10 @@ class ServiceTwitter < ApplicationService
     @tweets.each do |tweet|
       tweet.text.split.each do |word|
         if word.chars.first == "#"
-          if hashtags["#{word}"].nil?
-            hashtags["#{word}"] = 1
+          if @hashtags["#{word}"].nil?
+            @hashtags["#{word}"] = 1
           else
-            hashtags["#{word}"] += 1
+            @hashtags["#{word}"] += 1
           end
         end
       end
@@ -74,11 +75,10 @@ class ServiceTwitter < ApplicationService
     Resource.create!(
       data_type: 'twitter',
       data: {
-        hashtag: hashtags.sort_by { |word, value| -value }.first(5)
+        hashtag: @hashtags.sort_by { |word, value| -value }.first(5)
       },
       user: @user
     )
-    resource.update(data: data)
   end
 
   def profanity

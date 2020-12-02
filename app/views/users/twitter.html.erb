@@ -32,18 +32,21 @@
     </div> -->
     <div class="twin-1 w-50">
       <h3 style="white-space: pre-wrap;">Be careful you made some mistakes</h3>
-     <ul class="skills flex-wrap">
-      <% @mistakes.each do |word| %>
-     <li class= "li"-><%= word.flatten[1] %></li>
-      <% end %>
-    </ul>
+    <ul>
+        <% @mistakes.each do |word| %>
+          <% unless word.nil? %>
+            <li class= "li"><%= word.flatten[1] %></li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
     <div class="twin-2 w-50">
       <h3 style="white-space: pre-wrap;">Favorite hashtags</h3>
       <div class = "word-cloud">
-        <p><span>#backfriday #nasa #blacklivesmatter #tmtc #IamWithFarmers</span></p>
+        <% @hashtags.first.each do |hashtag| %>
+          <%= hashtag.first%>
+          <% end %>
       </div>
-       <%= @hashtags %>
     </div>
   </div>
 
