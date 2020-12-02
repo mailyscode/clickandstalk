@@ -1,6 +1,3 @@
-require 'webdrivers'
-require 'selenium-webdriver'
-
 class ScrappingInsta < ApplicationJob
   queue_as :default
 

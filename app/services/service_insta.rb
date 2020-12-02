@@ -1,3 +1,9 @@
+require 'uri'
+require 'net/http'
+require 'webdrivers'
+require 'selenium-webdriver'
+require 'json'
+
 class ServiceInsta < ApplicationService
   def initialize(user_id)
     @user = User.find(user_id)
@@ -13,8 +19,9 @@ class ServiceInsta < ApplicationService
     collect_info
     collect_img_url
     collect_likes_views_loc
-    create_resource
     quit_driver
+    check_nudity
+    create_resource
   end
 
   private
@@ -54,7 +61,7 @@ class ServiceInsta < ApplicationService
   end
 
   def collect_img_url
-    5.times do
+    1.times do
       begin
         @driver.execute_script('window.scrollTo(0, document.body.scrollHeight)')
         urls = @driver.find_elements(:css, '.v1Nh3.kIKUG._bz0w a')
@@ -86,6 +93,7 @@ class ServiceInsta < ApplicationService
       rescue Selenium::WebDriver::Error::NoSuchElementError
         post_insta[:views] = @driver.find_element(:css, '.vcOH2 span').attribute('innerHTML').strip.gsub(/\s/, '').to_i
       end
+      post_insta[:nudity] = false
     end
   end
 
@@ -101,5 +109,29 @@ class ServiceInsta < ApplicationService
 
   def quit_driver
     @driver.quit
+  end
+
+  def check_nudity
+    urls = @result.map { |post| post[:img] }
+    p urls
+    url = URI('https://app.nanonets.com/api/v2/ImageCategorization/LabelUrls/')
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Post.new(url)
+    request["accept"] = 'application/x-www-form-urlencoded'
+    request.basic_auth ENV['NUDITY_API_KEY'], ''
+    request.set_form_data({ 'modelId' => '353cea12-4dcc-47ee-b139-dd345157b17d', 'urls' => urls })
+    responses = http.request(request)
+    responses = JSON.parse(responses.read_body)
+    p responses
+    responses["result"].each do |response|
+      if response['prediction'][0]["label"] == "nsfw"
+        p response['prediction'][0]["label"]
+        p response['prediction'][0]["probability"]
+        post = @result.select { |post_insta| post_insta[:img] == response["file"] }.first
+        p post
+        post[:nudity] = true if response['prediction'][0]["probability"] > 0.90
+      end
+    end
   end
 end
