@@ -1,8 +1,6 @@
 class Resource < ApplicationRecord
-
-  # DATA_KEY_LINKEDIN = [:profile, :education, :skill]
+  DATA_KEY_TWITTER = [:content, :username, :date, :place, :hashtag, :mistake, :profanity]
   DATA_KEY_LINKEDIN = [:profile, :geolocalisation, :connections, :industry, :experience, :school, :education, :skill, :honor, :language]
-  DATA_KEY_TWITTER = [:name, :likes]
 
   belongs_to :user
 

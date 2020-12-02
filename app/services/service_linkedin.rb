@@ -33,7 +33,6 @@ class ServiceLinkedin < ApplicationService
     find_languages_and_honors
   end
 
-
   private
 
   def find_profile
