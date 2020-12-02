@@ -72,3 +72,4 @@ gem 'grammarbot'
 gem 'mailjet'
 
 gem "amazing_print", "~> 1.2"
+gem 'magic_cloud'

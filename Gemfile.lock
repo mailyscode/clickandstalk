@@ -136,6 +136,9 @@ GEM
     loofah (2.8.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    magic_cloud (0.0.4)
+      rmagick
+      slop (~> 3.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     mailjet (1.5.4)
@@ -230,6 +233,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rmagick (4.1.2)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -254,6 +258,7 @@ GEM
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simple_oauth (0.3.1)
+    slop (3.6.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -325,6 +330,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.2)
+  magic_cloud
   mailjet
   omniauth-twitter
   pg (>= 0.18, < 2.0)
