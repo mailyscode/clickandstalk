@@ -2,10 +2,82 @@
 @import "home";
 
 // LINKEDIN PAGE
-.linkedin span {
-  color: $blue-sapphire;
-  font-weight: bold;
+.user-score {
+  flex-direction: column;
+  margin: 30px 0;
+  padding: 30px 30px;
+  background-color: white;
+  color: #126782ff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.1);
+  opacity: 0.9;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  .user-name {
+    font-weight: bold;
+  }
+  h1 {
+    display: inline-block;
+    color: $blue-sapphire;
+    font-size: 60px;
+  }
+  span {
+    color: #d62828;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  #score-data {
+    margin-top: 40px;
+  }
+  #missing-data {
+    text-align: center;
+    margin-top: 40px;
+    ul {
+      padding-left: 0px;
+    }
+    ul > li {
+      list-style-type: none;
+      padding: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: $blue-green;
+      border: 1px solid $blue-green;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 15px;
+      &:hover {
+        cursor: pointer;
+        text-decoration: none;
+        color: #d62828;
+        border: 1px solid #d62828;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $blue-sapphire;
+    }
+  }
 }
+
+.circle {
+  width: 150px;
+  height: 150px;
+  line-height: 100px;
+  border-radius: 50%;
+  font-size: 50px;
+  border: 7px solid #d62828;
+  p {
+    color: #d62828;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 20px;
+  }
+}
+
 
 .title-container {
   justify-content: center;
@@ -25,14 +97,13 @@
 }
 
 .skills {
-  display: inline-flex;
   font-size: 12px;
   margin: 10px 40px;
   justify-content: center;
+  padding-left: 0px;
   li {
     font-size: 15px;
-    padding-right: 30px;
-    padding-bottom: 15px;
+    list-style-type: none;
   }
 }
 

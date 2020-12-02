@@ -18,7 +18,7 @@
 @import "components/flipcard";
 @import "components/card";
 @import "components/container";
-@import "components/wordscloud";
+@import "components/percentage";
 
 body {
   display: flex;
@@ -52,4 +52,8 @@ h1 {
   margin-top: 50px;
   margin-bottom: 50px;
   width: 70vw;
+}
+
+a {
+  text-decoration: none;
 }

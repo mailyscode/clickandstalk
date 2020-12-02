@@ -41,6 +41,23 @@
   }
 }
 
+.btn-missing-info {
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #d62828;
+  border: 1px solid #d62828;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  &:hover {
+    text-decoration: none;
+    color: $blue-green;
+    border: 1px solid $blue-green;
+  }
+}
+
 .link {
   color: black;
   font-size: 25px;
