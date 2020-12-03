@@ -47,7 +47,7 @@
         <%= link_to "Connect to my Instagram", connect_path, class:"btn btn-check btn-lg" %>
       </div>
     <% else %>
-      <container class="flexbox mt-3">
+      <container class="top-card flexbox mt-3">
         <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
         <p>@<%= current_user.username_insta %></p>
       </container>
@@ -75,7 +75,7 @@
         <%= link_to "Connect to my twitter", connect_path, class:"btn btn-check btn-lg" %>
       </div>
     <% else %>
-      <container class="flexbox mt-3">
+      <container class="top-card flexbox mt-3">
       <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;">
         <p>@<%= current_user.username_twitter %></p>
       </container>

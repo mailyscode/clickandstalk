@@ -21,7 +21,11 @@
 
   <div class="connect-2">
     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;"><br>
+    <% if current_user.username_twitter %>
+    <p><%= current_user.username_twitter %> is connected.</p>
+    <% else %>
     <br><%= link_to "Connect to my Twitter profile", user_twitter_omniauth_authorize_path, class:"link" %>
+    <% end %>
   </div>
 </div>
 

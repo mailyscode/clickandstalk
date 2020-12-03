@@ -116,21 +116,22 @@
 }
 
 .circle-twi {
-    background: $blue-sapphire;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    display: inline-block;
-    text-align: center;
-    line-height:90px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 40px;
-    margin-right: 25px;
-    margin-left: 25px;
-    letter-spacing: 1.5px;
-    font-size: 12px;
-  p { padding-top: 10px;
+  background: $blue-sapphire;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  text-align: center;
+  line-height:90px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 40px;
+  margin-right: 25px;
+  margin-left: 25px;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+  p {
+    padding-top: 30px;
   }
 
 }
