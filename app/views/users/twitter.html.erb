@@ -6,64 +6,60 @@
   </div>
 </div>
 
+<div class="container social-media-pages" >
 
-<div class="container social-media-pages">
-    <div class="card-details d-flex">
-      <h1>Summary</h1> <br>
+ <div class="cards flex-wrap">
+    <div class="card-title">
+      <h1 style="white-space: pre-wrap;"> Favorite hashtags <i class="fab fa-slack-hash"></i></h1>
     </div>
-    <p><%= @user.username_twitter %></p>
-</div>
-
-<div class="container social-media-pages">
-  <div class="card-details small">
-    <div class="twin-1 w-50">
-      <h3 class="center">Your last tweets</h3>
-      <% @contents.each do |tweet|%>
-      <div class="card-twitter tweet w-80" style="height: 30px;"><%= tweet %>
-    </div>
-      <% end %>
+    <div class="card-details-insta">
+       <div >
+          <% @hashtags.first.each do |hashtag| %>
+            <div class= "circle-twi text-center">
+              <p> <%= hashtag.first%> </p>
+            </div>
+          <% end %>
+      </div>
     </div>
   </div>
- <!--  <div class="card-details d-flex">
-    <div class="twin-1 w-50">
-      <h3 style="white-space: pre-wrap;">Grammar mistakes</h3>
-      <p>You've mispelled some words:  <span> "3 experience"  </span> in your last 200 tweets.</p>
-      <p>You've mispelled some words:  <span> "joubs" </span> in your last 200 tweets.</p>
-      <p>You've mispelled some words:  <span>"makintg" </span> in your last 200 tweets.</p>
 
-    </div> -->
-    <div class="container social-media-pages">
-        <div class="card-details small">
-          <h3 style="white-space: pre-wrap;">Be careful you made some mistakes</h3> <br>
-          <ul>
+
+  <div class="cards">
+    <div class="card-title">
+      <h1 style="white-space: pre-wrap;">Last tweets <i class="fab fa-twitter"></i></h1>
+    </div>
+    <div class="card-details-insta">
+      <div class="content d-flex">
+       <% @contents.each do |tweet|%>
+      <div class="card-tweet"><%= tweet %>
+    </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+ <div class="cards">
+    <div class="card-title">
+      <h1 style="white-space: pre-wrap; color:#d62828;"> Mistakes Warning  <i class="fas fa-exclamation-triangle"></i></h1>
+    </div>
+    <div class="card-details-insta">
+      <div class="content d-flex">
           <% @mistakes.each do |word| %>
-              <div class="mistakes" style="height: 30px;"><li class= "li"><%= word.flatten[1] %></li>
+              <div class= "card-mistake text-center"><%= word.flatten[1] %>
             <% unless word.nil? %>
             <% end %>
                 </div>
           <% end %>
-          </ul>
+          </div>
       </div>
-    </div>
-
-    <div class="container social-media-pages">
-        <div class="card-details small">
-        <h3 style="white-space: pre-wrap;">Your Top 5 favorite hashtags</h3>
-          <div >
-             <% @hashtags.first.each do |hashtag| %>
-             <div class= "circle-twi text-center"> <%= hashtag.first %> </div>
-              <% end %>
-      </div>
-    </div>
-
-
-  <div class="social-link text-center">
-    <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
-    <%= link_to '', "https://www.twitter.com/#{current_user.username_twitter}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-twitter" %>
   </div>
 
-   <div class="text-center">
-    <%= link_to "Back to Dashboard", dashboard_path, class:"btn btn-back" %>
-  </div>
+<div class="social-link text-center">
+  <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
+  <%= link_to '', "https://www.twitter.com/#{current_user.username_twitter}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-twitter" %>
 </div>
+
+ <div class="text-center">
+  <%= link_to "Back to Dashboard", dashboard_path, class:"btn btn-back" %>
 </div>
+

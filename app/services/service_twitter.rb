@@ -54,6 +54,8 @@ class ServiceTwitter < ApplicationService
           data["mistake"] << [check.rule['issueType'], check.context.text[check.offset...check.offset + check.length]]
           resource.update(data: data)
           if check.rule['issueType'] == ""
+
+
           end
         end
       end
