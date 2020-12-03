@@ -9,7 +9,7 @@
 
 <div class="container social-media-pages">
 
-
+  <% unless @likes.empty?%>
   <div class="cards">
     <div class="card-title">
       <h1 style="white-space: pre-wrap;">Pictures <i class="fas fa-camera-retro"></i></h1>
@@ -26,6 +26,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
   <% unless @views.empty?%>
   <div class="cards">
