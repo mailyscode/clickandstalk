@@ -3,71 +3,96 @@
    <h1><strong style="color: white;">My Social Media Analysis</strong></h1>
   </div>
 </div>
-<br> <br>
- <h3 style="text-align: center; font-family: Roboto bold; font-size: 40px;"> We just stalked you ! Here is the data we collected about you...👀 </h3>
-<br>
+<br><br>
 
 <div class="main-card">
 
-
   <div class="card-linkedin d-flex flex-column">
-    <container class="flexbox mt-3">
+    <% if current_user.username_linkedin.nil? %>
+      <container class="top-card flexbox mt-3">
       <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" alt="Avatar" style="width:100px;height:100px;">
-   <%= @current_user.username_linkedin %> <br>
+      </container>
+      <div class = "mt-2">
+        <h3>Nothing collected yet.</h3>
+        <p>Click below to enter your <b>Linkedin username</b><br>if you want feedbacks.</p>
+      </div>
+      <div class="text-center">
+        <%= link_to "Connect to my Linkedin", connect_path, class:"btn btn-check btn-lg" %>
+      </div>
+    <% else %>
+    <container class="top-card flexbox mt-3">
+      <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" alt="Avatar" style="width:120px;height:120px;">
+      <p>@<%= current_user.username_linkedin %></p> <br>
     </container>
     <div class = "mt-2"> We collected your <b> job experiences</b>, <br> your <b>education</b> and your <b> skills </b> . </div> <br>
       <div align="center">
-        <img src="https://www.flaticon.com/svg/static/icons/svg/3846/3846851.svg" style="width:60px;height:60px; padding-right: 15px;">
-
+        <img src="https://www.flaticon.com/svg/static/icons/svg/3846/3846851.svg" style="width:80px;height:60px; padding-right: 15px;">
         <img src="https://www.flaticon.com/svg/static/icons/svg/921/921335.svg" style="width:60px;height:60px; padding-right: 15px;">
-
         <img src= "https://www.flaticon.com/svg/static/icons/svg/3135/3135729.svg" style="width:60px;height:60px; padding-right: 15px;">
       </div>
       <%=link_to "Check what we know about you", linkedin_path, class:"btn btn-log mt-auto btn-block  mt-auto"%>
+     <% end %>
   </div>
 
-<div class="card-insta d-flex flex-column" >
-    <container class="flexbox mt-3">
-      <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
-      <%= @current_user.username_insta %> <%#= @user.username_insta %>
-    </container>
-
-     <div class = "mt-2"> We collected your <b> most liked photos</b> and <br>your <b> favorite locations </b>.</div> <br>
-    <div align="center">
-      <img src="https://www.flaticon.com/svg/static/icons/svg/916/916762.svg" style="width:60px;height:60px; padding-right: 15px; ">
-
-      <img src="https://www.flaticon.com/svg/static/icons/svg/684/684809.svg" style="width:60px;height:60px;padding-right: 15px;">
-
-      <img src="https://www.flaticon.com/svg/static/icons/svg/3587/3587071.svg" style="width:60px;height:60px; padding-right: 15px;">
-
-    </div>
-    <%=link_to "Check what we know about you", instagram_path, class:"btn btn-log mt-auto btn-block mt-auto" %>
-
-</div>
+  <div class="card-insta d-flex flex-column" >
+    <% if current_user.username_insta.nil? %>
+      <container class="flexbox mt-3">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
+      </container>
+      <div class = "mt-2">
+        <h3>Nothing collected yet.</h3>
+        <p>Click below to enter your <b>Instagram username</b><br>if you want feedbacks.</p>
+      </div>
+      <div class="text-center">
+        <%= link_to "Connect to my Instagram", connect_path, class:"btn btn-check btn-lg" %>
+      </div>
+    <% else %>
+      <container class="flexbox mt-3">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
+        <p>@<%= current_user.username_insta %></p>
+      </container>
+       <div class = "mt-2"> We collected your <b> most liked photos</b> and <br>your <b> favorite locations </b>.</div> <br>
+      <div align="center">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/916/916762.svg" style="width:60px;height:60px; padding-right: 15px; ">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/684/684809.svg" style="width:60px;height:60px;padding-right: 15px;">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/3587/3587071.svg" style="width:60px;height:60px; padding-right: 15px;">
+      </div>
+      <%=link_to "Check what we know about you", instagram_path, class:"btn btn-log mt-auto btn-block mt-auto" %>
+    <% end %>
+  </div>
 
 
   <div class="card-twitter d-flex flex-column" >
-    <container class="flexbox mt-3">
+    <% if current_user.username_twitter.nil? %>
+      <container class="flexbox mt-3">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;">
+      </container>
+      <div class = "mt-2">
+        <h3>Nothing collected yet.</h3>
+        <p>Click below to enter your <b>Twitter username</b> <br>if you want feedbacks.</p>
+      </div>
+      <div class="text-center">
+        <%= link_to "Connect to my twitter", connect_path, class:"btn btn-check btn-lg" %>
+      </div>
+    <% else %>
+      <container class="flexbox mt-3">
       <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;">
-        <div class="text-center"><%= @current_user.username_twitter %></div>
+        <p>@<%= current_user.username_twitter %></p>
       </container>
       <div class = "mt-2"> We collected your <b> tweets</b> and <b>favorite hashtags</b>.  </div> <br> <br>
-
-           <div align="center">
-            <img src= "https://www.flaticon.com/svg/static/icons/svg/3260/3260057.svg" style="width:60px;height:60px; padding-right: 15px; ">
-
+      <div align="center">
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/3260/3260057.svg" style="width:60px;height:60px; padding-right: 15px; ">
         <img src= "https://www.flaticon.com/svg/static/icons/svg/1717/1717780.svg" style="width:60px;height:60px; padding-right: 15px;">
-
-         <img src= "https://www.flaticon.com/svg/static/icons/svg/1946/1946473.svg" style="width:60px;height:60px; padding-right: 15px; ">
-
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/1946/1946473.svg" style="width:60px;height:60px; padding-right: 15px; ">
       </div>
-    <%=link_to "Check what we know about you", twitter_path, class:"btn btn-log mt-auto btn-block mt-auto"  %>
+      <%=link_to "Check what we know about you", twitter_path, class:"btn btn-log mt-auto btn-block mt-auto"  %>
+    <% end %>
     </div>
 </div>
 
 
 <div class="bottom-page text-center">
-  <%= link_to 'Back to homepage', root_path, class: 'btn btn-check' %>
+  <%= link_to 'Back to homepage', root_path, class: 'btn btn-log btn-lg' %>
 </div>
 
 

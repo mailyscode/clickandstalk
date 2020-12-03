@@ -42,17 +42,18 @@
       padding: 10px;
       margin-top: 20px;
       margin-bottom: 20px;
-      color: $blue-green;
-      border: 1px solid $blue-green;
+      color: #d62828;
+      border: 1px solid #d62828;
       border-radius: 50px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       font-size: 15px;
+      font-weight: bold;
       &:hover {
         cursor: pointer;
         text-decoration: none;
-        color: #d62828;
-        border: 1px solid #d62828;
+        color: #8ecae6ff;
+        border: 1px solid #8ecae6ff;
       }
     }
     a {
