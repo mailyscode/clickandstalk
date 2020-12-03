@@ -7,7 +7,7 @@
 </div>
 
 <div class="container social-media-pages" >
-
+<% unless @hashtags.empty? %>
  <div class="cards flex-wrap">
     <div class="card-title">
       <h1 style="white-space: pre-wrap;"> Favorite hashtags <i class="fab fa-slack-hash"></i></h1>
@@ -22,6 +22,7 @@
       </div>
     </div>
   </div>
+<% end %>
 
 
   <div class="cards">
@@ -30,29 +31,35 @@
     </div>
     <div class="card-details-insta">
       <div class="content d-flex">
-       <% @contents.each do |tweet|%>
-      <div class="card-tweet"><%= tweet %>
-    </div>
-      <% end %>
+        <% if @contents.empty? %>
+          <h3><i class="fas fa-exclamation-circle"></i><br> You never tweeted anything </h3>
+        <% else %>
+         <% @contents.each do |tweet|%>
+            <div class="card-tweet"><%= tweet %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 
- <div class="cards">
-    <div class="card-title">
-      <h1 style="white-space: pre-wrap; color:#d62828;"> Mistakes Warning  <i class="fas fa-exclamation-triangle"></i></h1>
-    </div>
-    <div class="card-details-insta">
-      <div class="content d-flex">
-          <% @mistakes.each do |word| %>
-              <div class= "card-mistake text-center"><%= word.flatten[1] %>
-            <% unless word.nil? %>
-            <% end %>
-                </div>
-          <% end %>
-          </div>
+<% unless @mistakes.empty? %>
+   <div class="cards">
+      <div class="card-title">
+        <h1 style="white-space: pre-wrap; color:#d62828;"> Mistakes Warning  <i class="fas fa-exclamation-triangle"></i></h1>
       </div>
-  </div>
+      <div class="card-details-insta">
+        <div class="content d-flex">
+            <% @mistakes.each do |word| %>
+                <div class= "card-mistake text-center"><%= word.flatten[1] %>
+              <% unless word.nil? %>
+              <% end %>
+                  </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+  <% end %>
 
 <div class="social-link text-center">
   <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
