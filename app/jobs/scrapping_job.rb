@@ -6,7 +6,7 @@ class ScrappingJob < ApplicationJob
     ScrappingLinkedin.new(user_id).perform unless @user.username_insta.nil?
     ScrappingTwitter.new(user_id).perform unless @user.username_twitter.nil?
     # send email
-    # mail = UserMailer.job_finish
-    # mail.deliver_now
+    mail = UserMailer.job_finish(user_id)
+    mail.deliver_now
   end
 end
