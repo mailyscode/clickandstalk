@@ -46,21 +46,10 @@ class ServiceInsta < ApplicationService
     sleep 5
   end
 
-  def collect_info
-    # on navigue jusqu'au compte insta et recupere bio plus nb de followers
+  def collect_img_url
     @driver.navigate.to "https://www.instagram.com/#{@username}"
     sleep 2
-    followers = @driver.find_element(:css, '.Y8-fY a span').attribute('innerHTML')
-    bio = @driver.find_element(:css, '.-vDIg span').attribute('innerHTML')
-    Resource.create(
-      data_type: 'insta',
-      data: { info: { followers: followers, bio: bio } },
-      user: @user
-    )
-  end
-
-  def collect_img_url
-    1.times do
+    5.times do
       begin
         @driver.execute_script('window.scrollTo(0, document.body.scrollHeight)')
         urls = @driver.find_elements(:css, '.v1Nh3.kIKUG._bz0w a')
