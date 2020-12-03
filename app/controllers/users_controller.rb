@@ -18,7 +18,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.resources.destroy_all
-    @user.update(user_params)
+    changed_username = user_params
+    changed_username[:username_linkedin] = nil if changed_username[:username_linkedin].empty?
+    changed_username[:username_insta] = nil if changed_username[:username_insta].empty?
+    @user.update(changed_username)
     redirect_to connect_path
   end
 
