@@ -54,18 +54,6 @@
       </div>
   </div>
 
-  <div class="container social-media-pages">
-    <div class="card-details small">
-      <h3 style="white-space: pre-wrap;">Your Top 5 favorite hashtags</h3>
-      <div >
-        <% @hashtags.first.each do |hashtag| %>
-          <div class= "circle-twi text-center"> <%= hashtag.first %> </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="social-link text-center">
   <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
   <%= link_to '', "https://www.twitter.com/#{current_user.username_twitter}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-twitter" %>

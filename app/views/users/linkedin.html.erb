@@ -230,19 +230,19 @@
         <% if @languages.empty? %>
           <p><span>Add languages!</span></p>
           <% missing_info << '<li><a href="#user-languages">Missing foreign languages</a></li>' %>
-        <% elsif @languages.each do |language| %>
-            <p><%= language["name"] %> : <br><span>Add your level</span></p><% if language["proficiency"].empty? %>
+        <% else %>
+          <% counter += 10 %>
+          <% proficiency = true %>
+          <% @languages.each do |language| %>
+            <% if language["proficiency"].empty? %>
+              <% proficiency = false %>
+              <p><%= language["name"] %> : <br><span>Add your level</span></p>
+            <% else %>
+              <p><%= language["name"] %> : <br><%= language["proficiency"].capitalize.gsub('_', ' ') %></p>
             <% end %>
           <% end %>
-          <% missing_info << '<li><a href="#user-languages">Missing language level</a></li>' %>
-          <% counter += 10 %>
-        <% else %>
-          <ul class="skills flex-wrap">
-            <% @languages.each do |language| %>
-            <li><%= language["name"] %> : <%= language["proficiency"].capitalize.gsub('_', ' ') %></li>
-            <% end %>
-          </ul>
-          <% counter += 20 %>
+          <% counter += 10 if proficiency%>
+          <% missing_info << '<li><a href="#user-languages">Missing language level</a></li>' unless proficiency%>
         <% end %>
       </div>
     </div>
@@ -254,7 +254,7 @@
       </div>
       <div class="card-details small d-flex">
         <% if @honors.empty? %>
-          <p>If you've ever had <strong>honors</strong> (of any kind!), don't be shy to <span>add it to your profile</span> ! You never know what might make a difference <i class="far fa-smile-wink" style="color:black"></i></p>
+          <p>If you've ever had <strong>honors</strong> (of any kind!), don't be shy to <strong>add it to your profile</strong> ! You never know what might make a difference <i class="far fa-smile-wink" style="color:black"></i></p>
         <% else %>
           <ul class="skills list-inline flex-wrap">
             <% @honors.each do |h| %>
