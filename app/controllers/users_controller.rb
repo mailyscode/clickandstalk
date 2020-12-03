@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     Resource::DATA_KEY_LINKEDIN.each do |key|
       value = @user.resources.where(data_type: "linkedin").with_key(key).map(&key)
       instance_variable_set("@#{key.to_s.pluralize}", value)
-      end
+    end
   end
 
   def twitter
@@ -39,14 +39,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def instagram
+    @user = current_user
+    @resources = @user.resources.where(data_type: "insta")
+
+    Resource::DATA_KEY_INSTA.each do |key|
+      value = @user.resources.where(data_type: "insta").with_key(key).map(&key)
+      instance_variable_set("@#{key.to_s.pluralize}", value)
+    end
+    @most_liked_post = @resources.select { |resource| resource.data["like"] }
+                                 .sort_by { |resource| -resource.data["like"] }
+                                 .first(5)
+
+    @most_viewed_post = @resources.select { |resource| resource.data["view"] }
+                                  .sort_by { |resource| -resource.data["view"] }
+                                  .first(5)
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username_linkedin, :username_insta)
   end
-
-  # def twitter
-  #   @user = current_user
-  #   @resources = Resource.where(data_type: "twitter", user: @user)
-  # end
 end

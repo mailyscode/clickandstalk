@@ -17,61 +17,54 @@
     <div class="card-details-insta">
       <h3 style="white-space: pre-wrap;">Top 5 of most liked pictures</h3>
       <div class="content d-flex">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+        <% @most_liked_post.each do |resource| %>
+        <div>
+          <a href="<%= resource.data["url"] %>" target="_blank"><%= image_tag resource.data["img"], alt: resource.data["like"].to_s %></a>
+          <p><i class="far fa-heart"></i> <%= resource.data["like"].to_s  %></p>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
 
-
+  <% unless @views.empty?%>
   <div class="cards">
     <div class="card-title">
       <h1 style="white-space: pre-wrap;">Videos <i class="fas fa-video"></i></h1>
     </div>
     <div class="card-details-insta">
-      <h3 style="white-space: pre-wrap;">Top 5 of most liked pictures</h3>
+      <h3 style="white-space: pre-wrap;">Top 5 of most watched videos</h3>
       <div class="content d-flex">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+        <% @most_viewed_post.each do |resource| %>
+        <div>
+          <a href="<%= resource.data["url"] %>" target="_blank"><%= image_tag resource.data["img"], alt: resource.data["view"].to_s %></a>
+          <p><i class="fas fa-eye"></i> <%= resource.data["view"].to_s  %></p>
+        </div>
+        <% end %>
       </div>
+    </div>
+    <% end %>
 
-  <div class="card-details ">
-    <p>You have <span>481 followers</span>.</p>
-    <h3 style="white-space: pre-wrap;">Your <em>STAR</em> pictures!</h3>
-    <div class="photos d-flex justify-content-center mb-5">
-      <img class="avatar-square" alt="avatar-square" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-      <img class="avatar-square" alt="avatar-square" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-      <img class="avatar-square" alt="avatar-square" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-    </div>
-    <div class="card-title title-warning">
-      <h1>NUDITY WARNING!</h1>
-    </div>
-    <p>Vous avez <span>2 photos dénudées</span> sur votre profil !</p>
-    <div class="photos d-flex justify-content-center mb-5">
-      <img class="avatar-square" alt="avatar-square" src="https://leakedpie.com/wp-content/uploads/2017/07/Kim-Kardashian-undressed-for-paper-magazine-with-black-gloves-on.jpg" />
-      <img class="avatar-square" alt="avatar-square" src="https://leakedpie.com/wp-content/uploads/2017/07/Kim-Kardashian-nipples-showing-through-white-wet-top-e1499386327865.jpg" />
-    </div>
-  </div>
-
+<% nudity_post = @resources.select {|resource| resource.data["nudity"]}.first(10) %>
+<% unless nudity_post.empty? %>
   <div class="cards">
     <div class="card-title warning">
       <h1 style="white-space: pre-wrap; color: red;">NUDITY WARNING <i class="fas fa-exclamation-triangle"></i></h1>
     </div>
     <div class="card-details-insta">
-      <h3 style="white-space: pre-wrap;">2 pictures were found in our nudity detector!</h3>
+      <h3 style="white-space: pre-wrap;"><%= nudity_post.size %> pictures were found in our nudity detector!</h3>
       <div class="content d-flex">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1499087666200-e07e9c631266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+        <% nudity_post.each do |post|%>
+        <div>
+          <a href="<%= post.url %>" target="_blank"><%= image_tag post.img, alt: current_user.username_insta %></a>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
+<% end %>
 
+<% unless @localisations.empty? %>
   <div class="cards">
     <div class="card-title">
       <h1 style="white-space: pre-wrap;">Favorite spots <i class="fas fa-map-marker-alt"></i></h1>
@@ -80,15 +73,22 @@
       <h3 style="white-space: pre-wrap;">Top 5 of most visited places</h3>
       <div class="content d-flex">
         <ul class="skills flex-wrap">
-            <li><a href="">Lyon</a></li>....
-            <li><a href="">Lyon</a></li>
-            <li><a href="">Lyon</a></li>
-            <li><a href="">Lyon</a></li>
+          <% loc_sorted = {} %>
+          <% @localisations.each do |loc| %>
+            <% if loc_sorted[loc].nil? %>
+              <% loc_sorted[loc] = 1 %>
+            <% elsif loc_sorted[loc] >= 1 %>
+              <% loc_sorted[loc] += 1 %>
+            <% end %>
+          <% end %>
+          <% loc_sorted.sort_by{|loc, nb| nb}.first(5).each do |loc, nb| %>
+            <li><p><%= loc %></p></li>
+          <% end %>
         </ul>
       </div>
     </div>
   </div>
-
+<% end %>
 
   <div class="social-link link-insta text-center">
     <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>

@@ -16,7 +16,6 @@ class ServiceInsta < ApplicationService
   def call
     allow_cookies
     connection
-    collect_info
     collect_img_url
     collect_likes_views_loc
     quit_driver
@@ -89,9 +88,9 @@ class ServiceInsta < ApplicationService
         post_insta[:localisation] = nil
       end
       begin
-        post_insta[:likes] = @driver.find_element(:css, '.Nm9Fw span').attribute('innerHTML').strip.gsub(/\s/, '').to_i
+        post_insta[:like] = @driver.find_element(:css, '.Nm9Fw span').attribute('innerHTML').strip.gsub(/\s/, '').to_i
       rescue Selenium::WebDriver::Error::NoSuchElementError
-        post_insta[:views] = @driver.find_element(:css, '.vcOH2 span').attribute('innerHTML').strip.gsub(/\s/, '').to_i
+        post_insta[:view] = @driver.find_element(:css, '.vcOH2 span').attribute('innerHTML').strip.gsub(/\s/, '').to_i
       end
       post_insta[:nudity] = false
     end
