@@ -3,19 +3,25 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def wait
+  end
+
   def dashboard
     @user = current_user
   end
 
   def checkme
     ScrappingJob.perform_later(current_user.id)
-    redirect_to dashboard_path
+    redirect_to wait_path
   end
 
   def update
     @user = current_user
     @user.resources.destroy_all
-    @user.update(user_params)
+    changed_username = user_params
+    changed_username[:username_linkedin] = nil if changed_username[:username_linkedin].empty?
+    changed_username[:username_insta] = nil if changed_username[:username_insta].empty?
+    @user.update(changed_username)
     redirect_to connect_path
   end
 

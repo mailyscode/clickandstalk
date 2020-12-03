@@ -11,7 +11,7 @@
 
   <div class="user-score">
     <div class="display-score">
-      <p>Your profile is not complete!</p>
+      <h3><strong>Your profile is not complete!</strong></h3>
       <p>Look for <span>missing information</span> to reach 100%</p>
     </div>
     <div id="score-data">
@@ -200,15 +200,15 @@
       <div id="user-skills" class="card-title">
         <h1 style="white-space: pre-wrap;">Skills <i class="fas fa-lightbulb"></i></h1>
       </div>
-      <div class="card-details d-flex">
-        <div class="skills-list w-50">
+      <div class="card-details">
+        <div class="skills-list">
           <% number_of_skills = @skills.count.to_i %>
           <% if number_of_skills <= 4 %>
             <p><span>Add skills</span> so that recruiters can spot your talents!</p>
             <p>And don't forget to ask your former employers for <strong>recommendations</strong> on your skills !</p>
             <% missing_info << '<li><a href="#user-skills">Missing skills</a></li>' %>
         </div>
-        <div class="skills-list w-50">
+        <div class="skills-list">
           <% else %>
             <ul class="skills flex-wrap">
               <% @skills.sample(5).each do |skill| %>
@@ -265,6 +265,8 @@
         <% end %>
       </div>
     </div>
+
+</div>
 
   <div class="metadata">
     <meta name="score" id="score" content="<%= counter %>">

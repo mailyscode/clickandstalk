@@ -8,20 +8,22 @@
 
 
 <div class="container social-media-pages">
-  <div class="card-title title-1">
-    <h1>Summary</h1>
-    <%= @user.username_twitter.capitalize %>
-
-  </div>
-  <div class="card-details d-flex">
-    <div class="twin-1 w-50">
-      <h3 style="white-space: pre-wrap;">Your last tweets</h3>
-      <% @contents.each do |tweet|%>
-        <div class="card-twitter w-80" style="height: 30px; text-align: center;"><%= tweet %></div>
-      <% end %>
-
-
+    <div class="card-details d-flex">
+      <h1>Summary</h1> <br>
     </div>
+    <p><%= @user.username_twitter %></p>
+</div>
+
+<div class="container social-media-pages">
+  <div class="card-details small">
+    <div class="twin-1 w-50">
+      <h3 class="center">Your last tweets</h3>
+      <% @contents.each do |tweet|%>
+      <div class="card-twitter tweet w-80" style="height: 30px;"><%= tweet %>
+    </div>
+      <% end %>
+    </div>
+  </div>
  <!--  <div class="card-details d-flex">
     <div class="twin-1 w-50">
       <h3 style="white-space: pre-wrap;">Grammar mistakes</h3>
@@ -30,25 +32,30 @@
       <p>You've mispelled some words:  <span>"makintg" </span> in your last 200 tweets.</p>
 
     </div> -->
-    <div class="twin-1 w-50">
-      <h3 style="white-space: pre-wrap;">Be careful you made some mistakes</h3>
-    <ul>
-        <% @mistakes.each do |word| %>
-          <% unless word.nil? %>
-            <li class= "li"><%= word.flatten[1] %></li>
+    <div class="container social-media-pages">
+        <div class="card-details small">
+          <h3 style="white-space: pre-wrap;">Be careful you made some mistakes</h3> <br>
+          <ul>
+          <% @mistakes.each do |word| %>
+              <div class="mistakes" style="height: 30px;"><li class= "li"><%= word.flatten[1] %></li>
+            <% unless word.nil? %>
+            <% end %>
+                </div>
           <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <div class="twin-2 w-50">
-      <h3 style="white-space: pre-wrap;">Favorite hashtags</h3>
-      <div class = "word-cloud">
-        <% @hashtags.first.each do |hashtag| %>
-          <%= hashtag.first%>
-          <% end %>
+          </ul>
       </div>
     </div>
-  </div>
+
+    <div class="container social-media-pages">
+        <div class="card-details small">
+        <h3 style="white-space: pre-wrap;">Your Top 5 favorite hashtags</h3>
+          <div >
+             <% @hashtags.first.each do |hashtag| %>
+             <div class= "circle-twi text-center"> <%= hashtag.first %> </div>
+              <% end %>
+      </div>
+    </div>
+
 
   <div class="social-link text-center">
     <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
@@ -58,4 +65,5 @@
    <div class="text-center">
     <%= link_to "Back to Dashboard", dashboard_path, class:"btn btn-back" %>
   </div>
+</div>
 </div>
