@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'user/instagram', to: 'users#instagram', as: :instagram
   get 'user/linkedin', to: 'users#linkedin', as: :linkedin
 
+  get '/foo', to: 'pages#foo'
+
   get 'dashboard', to: 'users#dashboard', as: :dashboard
 
   root to: 'pages#home'

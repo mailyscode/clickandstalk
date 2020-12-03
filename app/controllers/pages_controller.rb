@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def foo
+    @result = InstaExample.followers_elon
+  end
 end
