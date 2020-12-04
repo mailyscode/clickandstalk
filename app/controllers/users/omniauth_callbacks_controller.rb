@@ -7,6 +7,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       username_twitter: request.env['omniauth.auth'].extra.access_token.params[:screen_name]
     )
     set_flash_message(:notice, :success, :kind => "twitter") if is_navigational_format?
-    redirect_to dashboard_path
+    redirect_to connect_path
   end
 end

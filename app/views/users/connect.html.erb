@@ -8,7 +8,8 @@
   <div class="connect-1">
     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_1280.png" alt="Avatar" style="width:100px;height:100px;">
     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width:100px;height:100px;">
-    <p class="text-center">Link your profiles to Click&Stalk (without prefix @) :</p>
+    <h3 class="text-center">Link your profiles to Click&Stalk :</h3>
+    <p class="text-center">(without prefix @)</p>
 
     <%= simple_form_for (@user) do |f| %>
       <%= f.input :username_insta, label: false, placeholder: "Enter your Instagram username" %>
@@ -21,7 +22,11 @@
 
   <div class="connect-2">
     <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834013_1280.png" alt="Avatar" style="width:100px;height:100px;"><br>
+    <% if current_user.username_twitter %>
+    <h3>@<%= current_user.username_twitter %> is connected.</h3>
+    <% else %>
     <br><%= link_to "Connect to my Twitter profile", user_twitter_omniauth_authorize_path, class:"link" %>
+    <% end %>
   </div>
 </div>
 

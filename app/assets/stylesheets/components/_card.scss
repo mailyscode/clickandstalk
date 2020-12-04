@@ -23,6 +23,17 @@ justify-content: center;
   font-family: Roboto;
   background: white;
   position: center;
+  .top-card {
+  padding-right: 20px;
+    p {
+      padding-top: 40px;
+      padding-right: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .card-twitter{
@@ -44,6 +55,17 @@ justify-content: center;
   font-family: Roboto;
   background: white;
   margin-bottom: 30px;
+  .top-card {
+  padding-right: 20px;
+  p {
+    padding-top: 40px;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+}
 }
 
 .card-linkedin{
@@ -62,9 +84,10 @@ justify-content: center;
   background: white;
   // background: -webkit-linear-gradient(bottom, top, #F4F4F4,#F4F4F4 30%, white 30%, white);
   .top-card {
-    padding-right: 20px;
+    padding-right: 40px;
     p {
       padding-top: 40px;
+      padding-right: 20px;
       font-weight: bold;
       font-size: 18px;
       letter-spacing: 1.5px;

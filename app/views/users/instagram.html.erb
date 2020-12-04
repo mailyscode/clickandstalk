@@ -20,7 +20,7 @@
         <% @most_liked_post.each do |resource| %>
         <div>
           <a href="<%= resource.data["url"] %>" target="_blank"><%= image_tag resource.data["img"], alt: resource.data["like"].to_s %></a>
-          <p><i class="far fa-heart"></i> <%= resource.data["like"].to_s  %></p>
+          <p><i class="far fa-heart"></i><strong> <%= resource.data["like"].to_s  %></strong></p>
         </div>
         <% end %>
       </div>
@@ -50,10 +50,11 @@
 <% unless nudity_post.empty? %>
   <div class="cards">
     <div class="card-title warning">
-      <h1 style="white-space: pre-wrap; color: red;">NUDITY WARNING <i class="fas fa-exclamation-triangle"></i></h1>
+      <h1 style="white-space: pre-wrap; color: #d62828;">NUDITY WARNING <i class="fas fa-exclamation-triangle"></i></h1>
     </div>
     <div class="card-details-insta">
       <h3 style="white-space: pre-wrap;"><%= nudity_post.size %> pictures were found in our nudity detector!</h3>
+      <p style="white-space: pre-wrap;"><strong>Maybe this should stay private... 😅</strong></p><br>
       <div class="content d-flex">
         <% nudity_post.each do |post|%>
         <div>
@@ -87,6 +88,7 @@
           <% end %>
         </ul>
       </div>
+    <p style="white-space: pre-wrap; font-size: 22px;"><strong>Giving your location is fine.</strong> <br> <span style="color: #73bfdcff;">But don't be surprised if people know everything about your moves 😉</span></p><br>
     </div>
   </div>
 <% end %>

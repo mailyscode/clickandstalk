@@ -13,7 +13,8 @@
       <h1 style="white-space: pre-wrap;"> Favorite hashtags <i class="fab fa-slack-hash"></i></h1>
     </div>
     <div class="card-details-insta">
-       <div >
+      <p style="white-space: pre-wrap;">This section can give information about your favorite topics. <br> <strong>Make sure hasthags really fit your personality and opinions.</strong></p><br>
+       <div>
           <% @hashtags.first.each do |hashtag| %>
             <div class= "circle-twi text-center">
               <p> <%= hashtag.first%> </p>
@@ -24,6 +25,25 @@
   </div>
 <% end %>
 
+
+<% unless @mistakes.empty? %>
+   <div class="cards">
+      <div class="card-title">
+        <h1 style="white-space: pre-wrap; color:#d62828;"> Mistakes Warning  <i class="fas fa-exclamation-triangle"></i></h1>
+      </div>
+      <div class="card-details-insta">
+      <p style="white-space: pre-wrap;">Grammar and misspelling can be badly perceived by recruiters. <br><strong>Here are words you've misspelled, be careful in the future 😉</strong></p><br>
+        <div class="content d-flex">
+            <% @mistakes.each do |word| %>
+                <div class= "card-mistake text-center"><%= word.flatten[1] %>
+              <% unless word.nil? %>
+              <% end %>
+                  </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+  <% end %>
 
   <div class="cards">
     <div class="card-title">
@@ -42,24 +62,6 @@
       </div>
     </div>
   </div>
-
-<% unless @mistakes.empty? %>
-   <div class="cards">
-      <div class="card-title">
-        <h1 style="white-space: pre-wrap; color:#d62828;"> Mistakes Warning  <i class="fas fa-exclamation-triangle"></i></h1>
-      </div>
-      <div class="card-details-insta">
-        <div class="content d-flex">
-            <% @mistakes.each do |word| %>
-                <div class= "card-mistake text-center"><%= word.flatten[1] %>
-              <% unless word.nil? %>
-              <% end %>
-                  </div>
-            <% end %>
-            </div>
-        </div>
-    </div>
-  <% end %>
 
 <div class="social-link text-center">
   <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
