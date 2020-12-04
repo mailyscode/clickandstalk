@@ -7,6 +7,19 @@
   margin-bottom: 20px;
 }
 
+.btn-dashboard {
+  color: $blue-sapphire;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid $blue-sapphire;
+  border-radius: 50px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  margin-bottom: 20px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .btn-back {
   padding: 20px;
   margin-top: 20px;
