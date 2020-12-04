@@ -26,24 +26,6 @@
 <% end %>
 
 
-  <div class="cards">
-    <div class="card-title">
-      <h1 style="white-space: pre-wrap;">Last tweets <i class="fab fa-twitter"></i></h1>
-    </div>
-    <div class="card-details-insta">
-      <div class="content d-flex">
-        <% if @contents.empty? %>
-          <h3><i class="fas fa-exclamation-circle"></i><br> You never tweeted anything </h3>
-        <% else %>
-         <% @contents.each do |tweet|%>
-            <div class="card-tweet"><%= tweet %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
 <% unless @mistakes.empty? %>
    <div class="cards">
       <div class="card-title">
@@ -62,6 +44,24 @@
         </div>
     </div>
   <% end %>
+
+  <div class="cards">
+    <div class="card-title">
+      <h1 style="white-space: pre-wrap;">Last tweets <i class="fab fa-twitter"></i></h1>
+    </div>
+    <div class="card-details-insta">
+      <div class="content d-flex">
+        <% if @contents.empty? %>
+          <h3><i class="fas fa-exclamation-circle"></i><br> You never tweeted anything </h3>
+        <% else %>
+         <% @contents.each do |tweet|%>
+            <div class="card-tweet"><%= tweet %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 <div class="social-link text-center">
   <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
