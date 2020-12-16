@@ -1,0 +1,107 @@
+<div class="page-banner">
+  <div class="title-container d-flex flex-wrap">
+    <h1><span>Instagram</span></h1>
+    <img src="https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834010_1280.png" style="width: 150px;height: 150px;">
+    <h1>cyber-image</h1>
+  </div>
+</div>
+
+
+<div class="container social-media-pages">
+
+  <% unless @likes.empty?%>
+  <div class="cards">
+    <div class="card-title">
+      <h1 style="white-space: pre-wrap;">Pictures <i class="fas fa-camera-retro"></i></h1>
+    </div>
+    <div class="card-details-insta">
+      <h3 style="white-space: pre-wrap;">Top 5 of most liked pictures</h3>
+      <div class="content d-flex">
+        <% @most_liked_post.each do |resource| %>
+        <div>
+          <a href="<%= resource.data["url"] %>" target="_blank"><%= image_tag resource.data["img"], alt: resource.data["like"].to_s %></a>
+          <p><i class="far fa-heart"></i><strong> <%= resource.data["like"].to_s  %></strong></p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% unless @views.empty?%>
+  <div class="cards">
+    <div class="card-title">
+      <h1 style="white-space: pre-wrap;">Videos <i class="fas fa-video"></i></h1>
+    </div>
+    <div class="card-details-insta">
+      <h3 style="white-space: pre-wrap;">Top 5 of most watched videos</h3>
+      <div class="content d-flex">
+        <% @most_viewed_post.each do |resource| %>
+        <div>
+          <a href="<%= resource.data["url"] %>" target="_blank"><%= image_tag resource.data["img"], alt: resource.data["view"].to_s %></a>
+          <p><i class="fas fa-eye"></i> <%= resource.data["view"].to_s  %></p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+<% nudity_post = @resources.select {|resource| resource.data["nudity"]}.first(10) %>
+<% unless nudity_post.empty? %>
+  <div class="cards">
+    <div class="card-title warning">
+      <h1 style="white-space: pre-wrap; color: #d62828;">NUDITY WARNING <i class="fas fa-exclamation-triangle"></i></h1>
+    </div>
+    <div class="card-details-insta">
+      <h3 style="white-space: pre-wrap;"><%= nudity_post.size %> pictures were found in our nudity detector!</h3>
+      <p style="white-space: pre-wrap;"><strong>Maybe this should stay private... 😅</strong></p><br>
+      <div class="content d-flex">
+        <% nudity_post.each do |post|%>
+        <div>
+          <a href="<%= post.url %>" target="_blank"><%= image_tag post.img, alt: current_user.username_insta %></a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @localisations.empty? %>
+  <div class="cards">
+    <div class="card-title">
+      <h1 style="white-space: pre-wrap;">Favorite spots <i class="fas fa-map-marker-alt"></i></h1>
+    </div>
+    <div class="card-details-insta">
+      <h3 style="white-space: pre-wrap;">Top 5 of most visited places</h3>
+      <div class="content d-flex">
+        <ul class="skills flex-wrap">
+          <% loc_sorted = {} %>
+          <% @localisations.each do |loc| %>
+            <% if loc_sorted[loc].nil? %>
+              <% loc_sorted[loc] = 1 %>
+            <% elsif loc_sorted[loc] >= 1 %>
+              <% loc_sorted[loc] += 1 %>
+            <% end %>
+          <% end %>
+          <% loc_sorted.sort_by{|loc, nb| nb}.first(5).each do |loc, nb| %>
+            <li><p><%= loc %></p></li>
+          <% end %>
+        </ul>
+      </div>
+    <p style="white-space: pre-wrap; font-size: 22px;"><strong>Giving your location is fine.</strong> <br> <span style="color: #73bfdcff;">But don't be surprised if people know everything about your moves 😉</span></p><br>
+    </div>
+  </div>
+<% end %>
+
+  <div class="social-link link-insta text-center">
+    <h3><i class="fas fa-arrow-circle-down"></i> Click to make changes <i class="fas fa-arrow-circle-down"></i></h3>
+    <%= link_to '', "https://www.instagram.com/#{current_user.username_insta}", target:"_blank", style:"text-decoration: none;", class:"fab fa-fw fa-instagram" %>
+  </div>
+
+  <div class="text-center">
+    <%= link_to "Back to Dashboard", dashboard_path, class:"btn btn-back" %>
+  </div>
+
+</div>
+
+

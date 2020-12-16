@@ -36,36 +36,36 @@
           <% missing_info << '<li><a href="#user-avatar">Missing an avatar</a></li>' %>
         <% else %>
           <%= image_tag @profiles[0]["profile_picture"], class: "avatar dropdown-toggle", style:"width:150px; margin-top:15px;", 'aria-haspopup': true, 'aria-expanded': false %>
-          <% counter += 10 %>
+          <% counter += 20 %>
         <% end %>
       </div>
     </div>
 
-
+<!-- problème selenium
 
     <div class="cards">
       <div id="user-connections" class="card-title">
         <h1 style="white-space: pre-wrap;">Connections <i class="far fa-handshake"></i></h1>
       </div>
       <div class="card-details small">
-        <% contacts = @connections.map {|x| x[/\d+/]} %>
-        <% contacts.each do |c| %><p><% c %></p><% end %>
-        <% number_of_contacts = contacts.first.to_i %>
-        <% if number_of_contacts == 500 %>
-          <p><%= @connections[0] %></p>
-          <% counter += 20 %>
-        <% elsif number_of_contacts < 100 %>
+        <%# contacts = @connections.map {|x| x[/\d+/]} %>
+        <%# contacts.each do |c| %><p><%# c %></p><%# end %>
+        <%# number_of_contacts = contacts.first.to_i %>
+        <%# if number_of_contacts == 500 %>
+          <p><%#= @connections[0] %></p>
+          <%# counter += 20 %>
+        <%# elsif number_of_contacts < 100 %>
           <p><span>Increase your connections</span> to be more visible by recruiters!</p>
-          <% missing_info << '<li><a href="#user-connections">Connect to more people</a></li>' %>
-        <% else %>
+          <%# missing_info << '<li><a href="#user-connections">Connect to more people</a></li>' %>
+        <%# else %>
           <p>You could still <span>connect to more people</span> !</p>
-          <% missing_info << '<li><a href="#user-connections">Connect to more people</a></li>' %>
-          <% counter += 10 %>
-        <% end %>
+          <%# missing_info << '<li><a href="#user-connections">Connect to more people</a></li>' %>
+          <%# counter += 10 %>
+        <%# end %>
       </div>
     </div>
 
-
+ -->
 
     <div class="cards">
       <div id="user-headline" class="card-title">
@@ -143,7 +143,7 @@
                 <% end %>
               <p>Is this correct ? If not, <strong>update</strong> it <i class="far fa-smile-wink" style="color:black"></i></p>
             <% end %>
-            <% counter += 10 %>
+            <% counter += 15 %>
           <% end %>
         </div>
       </div>
@@ -189,7 +189,7 @@
             <p>from <%= last_education_date.gsub('-', ' to ') %> <br>at <strong><%= last_education_school["school"] %></strong></p>
             <p>Is this correct ? If not, <strong>update</strong> it <i class="far fa-smile-wink" style="color:black"></i></p>
           <% end %>
-          <% counter += 10 %>
+          <% counter += 15 %>
         <% end %>
         </div>
       </div>
