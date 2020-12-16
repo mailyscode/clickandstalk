@@ -24,7 +24,7 @@ class ServiceLinkedin < ApplicationService
   def call
     find_profile
     geolocalisation
-    connections
+    # connections
     find_industries
     find_experiences
     find_schools
