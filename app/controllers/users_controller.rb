@@ -46,6 +46,9 @@ class UsersController < ApplicationController
   end
 
   def instagram
+  end
+
+  def instagramreel
     @user = current_user
     @resources = @user.resources.where(data_type: "insta")
 
