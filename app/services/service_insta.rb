@@ -29,7 +29,7 @@ class ServiceInsta < ApplicationService
   def allow_cookies
     # autorisation des cookies
     @driver.navigate.to "https://www.instagram.com/#{@username}"
-    # @driver.find_element(:css, '.aOOlW.bIiDR').click
+    @driver.find_element(:css, '.aOOlW.bIiDR').click
     sleep 2
   end
 
