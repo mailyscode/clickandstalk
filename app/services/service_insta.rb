@@ -8,6 +8,7 @@ class ServiceInsta < ApplicationService
   def initialize(user_id)
     @user = User.find(user_id)
     @username = @user.username_insta
+    Selenium::WebDriver::Chrome::Service.driver_path = ENV['CHROMEDRIVER_PATH']
     @driver = Selenium::WebDriver.for :chrome
     @post_urls_and_img = []
     @result = []

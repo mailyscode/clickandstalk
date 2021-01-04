@@ -14,12 +14,15 @@ Rails.application.routes.draw do
       get :instagram
     end
   end
+
   get 'user/connect', to: 'users#connect', as: :connect
   get 'user/wait', to: 'users#wait', as: :wait
   get 'user/checkme', to: 'users#checkme', as: :checkme
   get 'user/twitter', to: 'users#twitter', as: :twitter
   get 'user/instagram', to: 'users#instagram', as: :instagram
   get 'user/linkedin', to: 'users#linkedin', as: :linkedin
+
+  get 'user/instagramreel', to: 'users#instagramreel', as: :instagramreel
 
   get '/foo', to: 'pages#foo'
 
