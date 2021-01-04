@@ -4,15 +4,25 @@
     <title>Clickandstalk</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= https://www.clickandstalk.com %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
-    <meta property="og:title" content="Click & Stalk">
-    <meta property="og:description" content="CHECK OUT and CLEAN UP your cyber-image before looking for your dream job.">
-    <meta property="og:image" content="landing-image.png">
-    <meta property="og:url" content="https://www.clickandstalk.com/">
   </head>
 
   <body>
@@ -25,3 +35,8 @@
     <%= render 'shared/footer' %>
   </body>
 </html>
+
+<title><%= meta_title %></title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+
